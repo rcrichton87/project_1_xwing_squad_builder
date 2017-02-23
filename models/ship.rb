@@ -8,10 +8,16 @@ class Ship
   def initialize(options)
     @id = options['id']
     @name = options['name']
-    @stats = options['stats']
+    @stats = options['stats'] #array [attack, agility, shield, hull]
     @upgrades = options['upgrades']
     @manoeuvres = options['manoeuvres']
     @faction = options['faction']
+  end
+
+  def save
+    sql = "INSERT INTO ships (name, stats, upgrades, manoeuvres, faction) VALUES ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}') RETURNING *;"
+    result = SqlRunner.run(sql).first
+    @id = result['id'].to_i
   end
 
 end

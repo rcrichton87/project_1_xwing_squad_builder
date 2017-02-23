@@ -16,6 +16,6 @@ CREATE TABLE pilots (
   pilot_skill INT2,
   pilot_ability VARCHAR(255),
   cost INT2,
-  ship_type VARCHAR(255)
+  ship_id INT4 REFERENCES ships(id)
 );
 
