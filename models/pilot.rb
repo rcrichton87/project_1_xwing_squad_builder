@@ -51,4 +51,5 @@ class Pilot
     result = pilots.map { |pilot| Pilot.new(pilot) }
     return result
   end
+  
 end
