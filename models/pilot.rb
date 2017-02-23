@@ -25,4 +25,9 @@ class Pilot
     SqlRunner.run(sql)
   end
 
+  def delete
+    sql = "DELETE FROM pilots WHERE id=#{@id};"
+    SqlRunner.run(sql)
+  end 
+
 end
