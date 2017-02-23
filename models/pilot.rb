@@ -28,6 +28,10 @@ class Pilot
   def delete
     sql = "DELETE FROM pilots WHERE id=#{@id};"
     SqlRunner.run(sql)
-  end 
+  end
 
+  def update
+    sql = "UPDATE pilots SET (name, pilot_skill, pilot_ability, cost, ship_type) = ('#{@name}', #{@pilot_skill}, '#{@pilot_ability}', #{@cost}, '#{@ship_type}') WHERE id = #{@id};"
+    SqlRunner.run(sql) 
+  end
 end
