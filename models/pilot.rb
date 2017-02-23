@@ -40,4 +40,14 @@ class Pilot
     pilot = SqlRunner.run(sql).first
     return Pilot.new(pilot)
   end
+
+  def self.all
+
+  end
+
+  def get_many(sql)
+    pilots = SqlRunner.run(sql)
+    result = pilots.map { |pilot| Pilot.new(pilot) }
+    return result
+  end
 end
