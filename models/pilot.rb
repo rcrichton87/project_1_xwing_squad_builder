@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Pilot
 
-  attr_reader :id, :ship_id
+  attr_reader :id, :ship_type
   attr_accessor :name, :pilot_skill, :pilot_ability, :cost
 
   def initialize(options)
@@ -42,10 +42,11 @@ class Pilot
   end
 
   def self.all
-
+    sql = "SELECT * FROM pilots;"
+    return self.get_many(sql)
   end
 
-  def get_many(sql)
+  def self.get_many(sql)
     pilots = SqlRunner.run(sql)
     result = pilots.map { |pilot| Pilot.new(pilot) }
     return result

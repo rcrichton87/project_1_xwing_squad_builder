@@ -1,4 +1,11 @@
 DROP TABLE pilots;
+DROP TABLE ships;
+
+CREATE TABLE ships(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
+
+)
 
 CREATE TABLE pilots (
   id SERIAL4 PRIMARY KEY,
