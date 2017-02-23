@@ -1,4 +1,7 @@
 require_relative('../models/pilot.rb')
+require('pry')
+
+Pilot.delete_all
 
 pilot1 = Pilot.new({
   'name' => 'Luke Skywalker',
@@ -9,3 +12,6 @@ pilot1 = Pilot.new({
 })
 
 pilot1.save
+
+binding.pry
+nil
