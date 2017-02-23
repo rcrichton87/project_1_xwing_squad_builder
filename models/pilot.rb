@@ -34,4 +34,10 @@ class Pilot
     sql = "UPDATE pilots SET (name, pilot_skill, pilot_ability, cost, ship_type) = ('#{@name}', #{@pilot_skill}, '#{@pilot_ability}', #{@cost}, '#{@ship_type}') WHERE id = #{@id};"
     SqlRunner.run(sql) 
   end
+
+  def self.find(id)
+    sql = "SELECT * FROM pilots WHERE id = #{id};"
+    pilot = SqlRunner.run(sql).first
+    return Pilot.new(pilot)
+  end
 end
