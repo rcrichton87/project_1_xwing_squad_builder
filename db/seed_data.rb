@@ -3,6 +3,7 @@ require_relative('../models/ship.rb')
 require('pry')
 
 Pilot.delete_all
+Ship.delete_all
 
 ship1 = Ship.new({
   'name' => 'T-65 X-Wing',
