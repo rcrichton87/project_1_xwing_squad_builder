@@ -28,6 +28,8 @@ pilot3 = Pilot.new({
   'cost' => 0,
   'ship_type' => 'xwing'
 })
-pilot2.save
+pilot3.save
+
+
 binding.pry
 nil
