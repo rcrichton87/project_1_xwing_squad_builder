@@ -1,0 +1,23 @@
+<h1><%= @squad.name %></h1>
+
+<% for piloted_ship in @squad.piloted_ships %>
+  <ul>
+    <li>
+      <%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points 
+      <form method="POST" action="piloted_ships/<%= piloted_ship.id %>/update" >
+        <input type="submit" value="Change Ship">
+      </form> 
+    </li>
+  </ul>
+<% end %>
+<p>Total points: <%= @squad.total_cost %> </p>
+
+<form method="get" action="piloted_ships/new" >
+  <input type="submit" value="Add Ship">
+</form> 
+
+<form method="POST" action="squads/<%= @squad.id %>/delete" >
+  <input type="submit" value="Delete Squad">
+</form> 
+
+

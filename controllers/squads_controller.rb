@@ -16,3 +16,21 @@ post '/squads/:id/delete' do
   squad.delete
   redirect to '/squads'
 end
+
+get '/squads/new' do
+  erb(:"squads/new")
+end
+
+post '/squads' do
+  squad = Squad.new(params)
+  squad.save
+  redirect to '/squads'
+end
+
+get '/squads/:id' do
+  @squad = Squad.find(params[:id].to_i)
+  erb(:"squads/show")
+end
+
+
+

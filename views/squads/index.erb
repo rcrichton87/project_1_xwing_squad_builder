@@ -1,6 +1,7 @@
 <h1>Your Squadrons:</h1>
 
 <% for squad in @squads %>
+<h3> <%= squad.name %> </h3>
   <% for piloted_ship in squad.piloted_ships %>
     <ul>
       <li>
@@ -9,10 +10,10 @@
     </ul>
   <% end %>
   <p>Total points: <%= squad.total_cost %> </p>
-  <a href="squads/:id/edit">Edit Squad</a>
+  <a href="squads/<%= squad.id %>">View Squad</a>
   
   <form method="POST" action="squads/<%= squad.id %>/delete" >
     <input type="submit" value="Delete Squad">
   </form> 
-  
+
 <% end %>
