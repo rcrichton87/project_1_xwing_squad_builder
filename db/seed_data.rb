@@ -59,6 +59,24 @@ pilot3 = Pilot.new({
 })
 pilot3.save
 
+pilot4 = Pilot.new({
+  'name' => 'Black Squadron Pilot',
+  'pilot_skill' => 4,
+  'pilot_ability' => 'None.',
+  'cost' => 2,
+  'ship_id' => ship2.id
+})
+pilot4.save
+
+pilot5 = Pilot.new({
+  'name' => 'Howlrunner',
+  'pilot_skill' => 8,
+  'pilot_ability' => 'When attacking, friendly ships at range 1 may reroll one attack dice.',
+  'cost' => 6,
+  'ship_id' => ship2.id
+})
+pilot4.save
+
 pilotedship1 = PilotedShip.new({'pilot_id' => pilot1.id, 'ship_id' => ship1.id, 'squad_id' => squad1.id})
 pilotedship1.save
 

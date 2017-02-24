@@ -51,5 +51,11 @@ class Pilot
     result = pilots.map { |pilot| Pilot.new(pilot) }
     return result
   end
+
+  def ship
+    sql = "SELECT * FROM ships WHERE id = #{@ship_id};"
+    ship = SqlRunner.run(sql).first
+    return Ship.new(ship)
+  end
   
 end

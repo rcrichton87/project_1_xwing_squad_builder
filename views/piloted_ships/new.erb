@@ -1,24 +1,29 @@
-<h1>New ship<h1>
+<h1>New ship</h1> 
 
-  <form method="POST" action="/piloted_ships">
+  <form method="POST" action="/squads/<%= @squad.id %>/piloted_ships">
       
     <% ships = Ship.all %>
+    
+    <% ships.each do |ship| %>
     <ul>
-      <% ships.each do |ship| %>
       <li>
         <%= ship.name %>: <%= ship.cost %> points
       </li>
 
       <li>
         Pilot: 
-        <% pilots = ship.pilots %>
+      </li>
+        <select id="pilot" name="pilot">
+          <% pilots = ship.pilots %>
           <% pilots.each do |pilot| %>
-            <option value = "<%= pilot.id %>"><%=pilot.name%> - <%pilit.cost%></option>
+            <option value = "<%= pilot.id %>"><%=pilot.name%> - <%=pilot.cost%></option>
           <% end %>
-      <li>
-      <% end %>
+        </select>
     </ul>
+    <input type="submit" name="Add Ship"/>
+    <% end %>
+    
 
-  <input type="submit" name="Add Ship"/>
+
 
   </form>

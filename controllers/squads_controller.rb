@@ -28,7 +28,16 @@ post '/squads' do
 end
 
 get '/squads/:id/piloted_ships/new' do
+  @squad = Squad.find(params[:id].to_i)
   erb(:"piloted_ships/new")
+end
+
+post '/squads/:id/piloted_ships' do
+  pilot = Pilot.find(params[:pilot].to_i)
+  ship = pilot.ship
+  piloted_ship = PilotedShip.new({ 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:id].to_i })
+  piloted_ship.save 
+  redirect to '/squads'
 end
 
 get '/squads/:id' do
