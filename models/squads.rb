@@ -16,4 +16,9 @@ class Squad
     @id = result['id'].to_i
   end
 
+  def delete_all
+    sql = "DELETE FROM squads;"
+    SqlRunner.run(sql)
+  end
+
 end
