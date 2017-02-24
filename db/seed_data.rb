@@ -1,7 +1,9 @@
 require_relative('../models/pilot.rb')
 require_relative('../models/ship.rb')
+require_relative('../models/piloted_ship.rb')
 require('pry')
 
+PilotedShip.delete_all
 Pilot.delete_all
 Ship.delete_all
 
@@ -50,6 +52,8 @@ pilot3 = Pilot.new({
 })
 pilot3.save
 
+pilotedship1 = PilotedShip.new({'pilot_id' => pilot1.id, 'ship_id' => ship1.id})
+pilotedship1.save
 
 binding.pry
 nil

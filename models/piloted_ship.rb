@@ -11,9 +11,14 @@ class PilotedShip
   end
 
   def save
-    sql = "INSERT INTO piloted_ships (pilot_id, ship_id) VALUES (#{@pilot_id}, #{@ship_id} RETURNING *;"
+    sql = "INSERT INTO piloted_ships (pilot_id, ship_id) VALUES (#{@pilot_id}, #{@ship_id}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM piloted_ships;"
+    SqlRunner.run(sql)
   end
 
 end
