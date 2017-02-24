@@ -36,9 +36,14 @@ class Squad
     return total_cost
   end
 
-  def get_many(sql)
+  def self.get_many(sql)
     squads = SqlRunner.run(sql)
     results = squads.map{ |squad| Squad.new(squad)}
+  end
+
+  def self.all
+    sql = "SELECT * FROM squads;"
+    return self.get_many(sql)
   end
 
 end
