@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./pilot.rb')
 
 class Ship
 
@@ -35,6 +36,12 @@ class Ship
     ships = SqlRunner.run(sql)
     result = ships.map { |ship| Ship.new(ship) }
     return result
+  end
+
+  def pilots 
+    sql = "SELECT * FROM pilots WHERE ship_id = #{@id};"
+    pilots = Pilot.get_many(sql)
+    return pilots
   end
 
 end

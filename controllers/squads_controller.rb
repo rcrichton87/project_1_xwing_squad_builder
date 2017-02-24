@@ -27,10 +27,15 @@ post '/squads' do
   redirect to '/squads'
 end
 
+get '/squads/:id/piloted_ships/new' do
+  erb(:"piloted_ships/new")
+end
+
 get '/squads/:id' do
   @squad = Squad.find(params[:id].to_i)
   erb(:"squads/show")
 end
+
 
 
 
