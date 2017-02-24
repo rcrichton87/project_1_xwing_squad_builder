@@ -10,4 +10,10 @@ class Squad
     @name = options['name']
   end
 
+  def save
+    sql = "INSERT INTO squads (name) VALUES ('#{@name}) RETURNING *;"
+    result = SqlRunner.run(sql).first
+    @id = result['id'].to_i
+  end
+
 end
