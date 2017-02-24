@@ -11,12 +11,12 @@ class Squad
   end
 
   def save
-    sql = "INSERT INTO squads (name) VALUES ('#{@name}) RETURNING *;"
+    sql = "INSERT INTO squads (name) VALUES ('#{@name}') RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end
 
-  def delete_all
+  def self.delete_all
     sql = "DELETE FROM squads;"
     SqlRunner.run(sql)
   end

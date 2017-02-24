@@ -9,11 +9,12 @@ class PilotedShip
   def initialize(options)
     @id = options['id'].to_i
     @pilot_id = options['pilot_id'].to_i
-    @ship_id = options['ship_id'].to_i 
+    @ship_id = options['ship_id'].to_i
+    @squad_id = options['squad_id'].to_i 
   end
 
   def save
-    sql = "INSERT INTO piloted_ships (pilot_id, ship_id) VALUES (#{@pilot_id}, #{@ship_id}) RETURNING *;"
+    sql = "INSERT INTO piloted_ships (pilot_id, ship_id, squad_id) VALUES (#{@pilot_id}, #{@ship_id}, #{@squad_id}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end
