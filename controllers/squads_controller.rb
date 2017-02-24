@@ -7,5 +7,6 @@ require_relative('../models/ship.rb')
 require_relative('../models/piloted_ship.rb')
 
 get '/squads' do
-  
+  @squads = Squad.all
+  erb(:"squads/index")
 end

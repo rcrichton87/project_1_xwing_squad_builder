@@ -1,0 +1,14 @@
+<h1>Your Squadrons:</h1>
+
+<% for squad in @squads %>
+  <% for piloted_ship in squad.piloted_ships %>
+    <ul>
+      <li>
+      <%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points 
+      </li>
+    </ul>
+  <% end %>
+  <p>Total points: <%= squad.total_cost %> </p>
+  <a href="squads/:id/edit">Edit Squad</a>
+  <a href="squads/:id/delete">Delete Squad</a> 
+<% end %>
