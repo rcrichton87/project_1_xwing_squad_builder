@@ -1,0 +1,14 @@
+<form method="POST" action="/squads/<%= @squad.id %>/piloted_ships">
+
+<ul>
+  <li>
+    Pilot: 
+  </li>
+    <select id="pilot_id" name="pilot_id">
+      <% pilots = @ship.pilots %>
+      <% pilots.each do |pilot| %>
+        <option value = "<%= pilot.id %>"><%=pilot.name%> - <%=pilot.cost%></option>
+      <% end %>
+    </select>
+</ul>
+<input type="submit" name="Add Pilot"/>

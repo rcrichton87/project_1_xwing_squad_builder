@@ -7,7 +7,7 @@ class Ship
   attr_accessor :name, :stats, :upgrades, :manoeuvres, :faction, :cost
 
   def initialize(options)
-    @id = options['id']
+    @id = options['id'].to_i
     @name = options['name']
     @stats = options['stats'] #array [attack, agility, shield, hull]
     @upgrades = options['upgrades']
@@ -42,6 +42,12 @@ class Ship
     sql = "SELECT * FROM pilots WHERE ship_id = #{@id};"
     pilots = Pilot.get_many(sql)
     return pilots
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM ships WHERE id = #{id}"
+    ship = SqlRunner.run(sql).first
+    return Ship.new(ship)
   end
 
 end

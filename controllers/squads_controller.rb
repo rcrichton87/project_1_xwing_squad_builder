@@ -45,6 +45,12 @@ get '/squads/:id' do
   erb(:"squads/show")
 end
 
+get '/squads/:squad_id/ship/:ship_id' do
+  @squad = Squad.find(params[:squad_id].to_i)
+  @ship = Ship.find(params[:ship_id].to_i)
+  erb(:"piloted_ships/add_pilot")
+end
+
 post '/squads/:squad_id/piloted_ships/:ship_id/delete' do
   piloted_ship = PilotedShip.find(params[:ship_id].to_i)
   piloted_ship.delete
