@@ -62,5 +62,8 @@ pilot3.save
 pilotedship1 = PilotedShip.new({'pilot_id' => pilot1.id, 'ship_id' => ship1.id, 'squad_id' => squad1.id})
 pilotedship1.save
 
+pilotedship2 = PilotedShip.new({'pilot_id' => pilot2.id, 'ship_id' => ship1.id, 'squad_id' => squad1.id})
+pilotedship2.save
+
 binding.pry
 nil
