@@ -27,4 +27,10 @@ class PilotedShip
     return Ship.new(ship)
   end
 
+  def pilot
+    sql = "SELECT * FROM pilots WHERE id = #{@pilot_id};"
+    pilot = SqlRunner.run(sql).first
+    return Pilot.new(pilot)
+  end
+
 end
