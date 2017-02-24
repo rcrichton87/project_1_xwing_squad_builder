@@ -8,8 +8,14 @@
         <input type="submit" value="Change Ship">
       </form> 
     </li>
-  </ul>
+  
+
+  <form method="post" action="<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/delete" >
+    <input type="submit" value="Remove Ship">
+  </form> 
+  </ul> 
 <% end %>
+
 <p>Total points: <%= @squad.total_cost %> </p>
 
 <form method="get" action="<%= @squad.id %>/piloted_ships/new" >

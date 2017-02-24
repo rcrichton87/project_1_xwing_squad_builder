@@ -45,6 +45,11 @@ get '/squads/:id' do
   erb(:"squads/show")
 end
 
+post '/squads/:squad_id/piloted_ships/:ship_id/delete' do
+  piloted_ship = PilotedShip.find(params[:ship_id].to_i)
+  piloted_ship.delete
+  redirect to 'squads/#{params[squad_id]}'
+end
 
 
 

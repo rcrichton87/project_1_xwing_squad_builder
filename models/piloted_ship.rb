@@ -45,4 +45,10 @@ class PilotedShip
     return total_cost
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM piloted_ships WHERE id = #{id};"
+    piloted_ship = SqlRunner.run(sql).first
+    return PilotedShip.new(piloted_ship)
+  end
+
 end
