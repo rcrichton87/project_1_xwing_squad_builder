@@ -1,6 +1,12 @@
 DROP TABLE piloted_ships;
 DROP TABLE pilots;
 DROP TABLE ships;
+DROP TABLE squads;
+
+CREATE TABLE squads(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255)
+);
 
 CREATE TABLE ships(
   id SERIAL4 PRIMARY KEY,
@@ -24,6 +30,7 @@ CREATE TABLE pilots (
 CREATE TABLE piloted_ships (
   id SERIAL4 PRIMARY KEY,
   pilot_id INT4 REFERENCES pilots(id),
-  ship_id INT4 REFERENCES ships(id)
+  ship_id INT4 REFERENCES ships(id),
+  squad_id INT4 REFERENCES squads(id)
 );
 
