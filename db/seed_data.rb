@@ -75,7 +75,7 @@ pilot5 = Pilot.new({
   'cost' => 6,
   'ship_id' => ship2.id
 })
-pilot4.save
+pilot5.save
 
 pilotedship1 = PilotedShip.new({'pilot_id' => pilot1.id, 'ship_id' => ship1.id, 'squad_id' => squad1.id})
 pilotedship1.save

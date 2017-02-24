@@ -33,7 +33,7 @@ get '/squads/:id/piloted_ships/new' do
 end
 
 post '/squads/:id/piloted_ships' do
-  pilot = Pilot.find(params[:pilot].to_i)
+  pilot = Pilot.find(params[:pilot_id].to_i)
   ship = pilot.ship
   piloted_ship = PilotedShip.new({ 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:id].to_i })
   piloted_ship.save 
@@ -48,7 +48,7 @@ end
 post '/squads/:squad_id/piloted_ships/:ship_id/delete' do
   piloted_ship = PilotedShip.find(params[:ship_id].to_i)
   piloted_ship.delete
-  redirect to 'squads/#{params[squad_id]}'
+  redirect to '/squads'
 end
 
 
