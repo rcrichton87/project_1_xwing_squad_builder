@@ -29,4 +29,16 @@ class Squad
     return results
   end
 
+  def total_cost
+    piloted_ships = self.piloted_ships
+    total_cost = 0
+    piloted_ships.each { |piloted_ship| total_cost += piloted_ship.total_cost}
+    return total_cost
+  end
+
+  def get_many(sql)
+    squads = SqlRunner.run(sql)
+    results = squads.map{ |squad| Squad.new(squad)}
+  end
+
 end
