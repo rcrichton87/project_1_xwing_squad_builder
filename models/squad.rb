@@ -51,4 +51,10 @@ class Squad
     SqlRunner.run(sql)
   end
 
+  def find(id)
+    sql = "SELECT * FROM squads WHERE id = #{id};"
+    squad = SqlRunner.run(sql).first
+    return Squad.new(squad)
+  end
+
 end

@@ -10,3 +10,9 @@ get '/squads' do
   @squads = Squad.all
   erb(:"squads/index")
 end
+
+post '/squads/:id/delete' do
+  squad = Squad.find(params[:id].to_i)
+  squad.delete
+  redirect to '/squads'
+end
