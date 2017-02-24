@@ -25,6 +25,11 @@ class Ship
     SqlRunner.run(sql)
   end
 
+  def self.all
+    sql = "SELECT * FROM ships;"
+    return self.get_many(sql)
+  end
+
   def self.get_many(sql)
     ships = SqlRunner.run(sql)
     result = ships.map { |ship| Ship.new(ship) }

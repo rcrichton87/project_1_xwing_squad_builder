@@ -14,6 +14,15 @@ ship1 = Ship.new({
 })
 ship1.save
 
+ship2 = Ship.new({
+  'name' => 'TIE Fighter',
+  'stats' => '{2, 3, 0, 3}',
+  'upgrades' => '{"modification"}',
+  'manoeuvres' => 'link to manoeuvre image',
+  'faction' => 'imperial'
+})
+ship2.save
+
 pilot1 = Pilot.new({
   'name' => 'Luke Skywalker',
   'pilot_skill' => 8,
