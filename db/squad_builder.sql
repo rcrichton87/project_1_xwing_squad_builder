@@ -24,13 +24,13 @@ CREATE TABLE pilots (
   pilot_skill INT2,
   pilot_ability VARCHAR(255),
   cost INT2,
-  ship_id INT4 REFERENCES ships(id)
+  ship_id INT4 REFERENCES ships(id) ON DELETE CASCADE
 );
 
 CREATE TABLE piloted_ships (
   id SERIAL4 PRIMARY KEY,
   pilot_id INT4 REFERENCES pilots(id),
   ship_id INT4 REFERENCES ships(id),
-  squad_id INT4 REFERENCES squads(id)
+  squad_id INT4 REFERENCES squads(id) ON DELETE CASCADE
 );
 

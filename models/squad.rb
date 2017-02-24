@@ -46,4 +46,9 @@ class Squad
     return self.get_many(sql)
   end
 
+  def delete
+    sql = "DELETE FROM squads WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
 end
