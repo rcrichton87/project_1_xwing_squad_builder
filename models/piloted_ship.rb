@@ -10,4 +10,10 @@ class PilotedShip
     @ship_id = options['ship_id'].to_i 
   end
 
+  def save
+    sql = "INSERT INTO piloted_ships (pilot_id, ship_id) VALUES (#{@pilot_id}, #{@ship_id} RETURNING *;"
+    result = SqlRunner.run(sql).first
+    @id = result['id'].to_i
+  end
+
 end
