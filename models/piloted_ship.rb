@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./pilot.rb')
+require_relative('./ship.rb')
 
 class PilotedShip
 
@@ -31,6 +33,15 @@ class PilotedShip
     sql = "SELECT * FROM pilots WHERE id = #{@pilot_id};"
     pilot = SqlRunner.run(sql).first
     return Pilot.new(pilot)
+  end
+
+  def total_cost
+    ship = self.ship
+    pilot = self.pilot
+    total_cost = 0
+    total_cost += ship.cost 
+    total_cost += pilot.cost
+    return total_cost
   end
 
 end

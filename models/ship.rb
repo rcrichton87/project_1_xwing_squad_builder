@@ -3,7 +3,7 @@ require_relative('../db/sql_runner.rb')
 class Ship
 
   attr_reader :id
-  attr_accessor :name, :stats, :upgrades, :manoeuvres, :faction
+  attr_accessor :name, :stats, :upgrades, :manoeuvres, :faction, :cost
 
   def initialize(options)
     @id = options['id']
@@ -12,10 +12,11 @@ class Ship
     @upgrades = options['upgrades']
     @manoeuvres = options['manoeuvres']
     @faction = options['faction']
+    @cost = options['cost'].to_i
   end
 
   def save
-    sql = "INSERT INTO ships (name, stats, upgrades, manoeuvres, faction) VALUES ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}') RETURNING *;"
+    sql = "INSERT INTO ships (name, stats, upgrades, manoeuvres, faction, cost) VALUES ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}', #{@cost}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end

@@ -8,7 +8,8 @@ CREATE TABLE ships(
   stats INT2 ARRAY,
   upgrades VARCHAR(255) ARRAY,
   manoeuvres VARCHAR(255),
-  faction VARCHAR(255)
+  faction VARCHAR(255),
+  cost INT2
 );
 
 CREATE TABLE pilots (

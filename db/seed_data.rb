@@ -12,6 +12,7 @@ ship1 = Ship.new({
   'stats' => '{3, 2, 2, 3}',
   'upgrades' => '{"astromech", "torpedo", "modification"}',
   'manoeuvres' => 'link to manoeuvre image',
+  'cost' => 21,
   'faction' => 'rebel'
 })
 ship1.save
@@ -21,6 +22,7 @@ ship2 = Ship.new({
   'stats' => '{2, 3, 0, 3}',
   'upgrades' => '{"modification"}',
   'manoeuvres' => 'link to manoeuvre image',
+  'cost' => 12,
   'faction' => 'imperial'
 })
 ship2.save
