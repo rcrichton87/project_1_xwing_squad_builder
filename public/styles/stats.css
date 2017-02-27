@@ -1,0 +1,24 @@
+.pilot_skill {
+  color: orange;
+  font-size: 1.5em;
+}
+
+.attack {
+  color: red;
+  font-size: 1.5em;
+}
+
+.agility {
+  color: springgreen;
+  font-size: 1.5em;
+}
+
+.shields {
+ color: skyblue;
+ font-size: 1.5em;
+}
+
+.hull {
+  color: yellow;
+  font-size: 1.5em;
+}

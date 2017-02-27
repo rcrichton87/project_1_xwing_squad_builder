@@ -8,7 +8,7 @@
   <input class="button green" type="submit" value="Add New Pilot">
 </form> 
 
-<p><%= @ship.stats[1] %>  <%= @ship.stats[3] %>   <%= @ship.stats[5] %>  <%= @ship.stats[7] %></p>
+<p class="flex flex-column"><span class="attack">Attack: <%= @ship.stats[1] %></span> <span class="agility">Agility: <%= @ship.stats[3] %></span> <span class="shields">Shields: <%= @ship.stats[5] %></span> <span class="hull">Hull: <%= @ship.stats[7] %></span></p>
 
 <img src="<%= @ship.manoeuvres %>" />
 

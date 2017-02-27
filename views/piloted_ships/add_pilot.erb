@@ -7,7 +7,7 @@
     <select id="pilot_id" name="pilot_id">
       <% pilots = @ship.pilots %>
       <% pilots.each do |pilot| %>
-        <option value = "<%= pilot.id %>"><%=pilot.name%> - <%=pilot.cost%></option>
+        <option value = "<%= pilot.id %>"><%=pilot.name%>  +<%=pilot.cost%> points</option>
       <% end %>
     </select>
 </ul>

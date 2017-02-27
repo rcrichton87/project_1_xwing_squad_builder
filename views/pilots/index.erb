@@ -3,7 +3,10 @@
 <% @pilots.each do |pilot| %>
   <ul>
     <li>
-      <%= pilot.pilot_skill %> <%= pilot.name %>: <%= pilot.cost %>
+      <span class="pilot_skill">Pilot Skill: <%= pilot.pilot_skill %></span> 
+    </li>
+    <li>
+      <%= pilot.name %> - <%= pilot.cost + @ship.cost %> points
     </li>
     <li>
       <%= pilot.pilot_ability %>
@@ -17,5 +20,7 @@
   <form method="post" action="/pilots/<%= pilot.id %>/delete" >
     <input class="button red" type="submit" value="Delete Pilot">
   </form> 
+
+  <hr/>
 
 <% end %>
