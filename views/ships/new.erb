@@ -1,0 +1,39 @@
+<h3>Add a New Ship</h3>
+
+<form method="POST" action="/ships">
+
+<div>
+  <label for="name">Ship Name:</label>
+  <input type="text" name="name" id="name"/>
+</div>
+
+<div>
+  <label for="stats">Ship Stats:</label>
+  <input type="text" name="stats" id="stats"/>
+  <p>Enter as {Attack, Agility, Shields, Hull}</p>
+</div>
+
+<div>
+  <label for="upgrades">Upgrade Slots:</label>
+  <input type="text" name="upgrades" id="upgrades"/>
+  <p>Enter as {slot1, slot2 etc}</p>
+</div>
+
+<div>
+  <label for="manoeuvres">Maneuver Dial:</label>
+  <input type="text" name="manoeuvres" id="manoeuvres"/>
+</div>
+
+<div>
+  <label for="cost">Cost:</label>
+  <input type="number" name="cost" id="cost"/>
+</div>
+
+<div>
+  <label for="faction">Faction:</label>
+  <input type="text" name="faction" id="faction"/>
+</div>
+
+<input type="submit" name="Add ship"/>
+
+</form>
