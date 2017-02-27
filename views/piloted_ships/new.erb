@@ -3,9 +3,11 @@
 <% ships = Ship.all %>
 
 <% ships.each do |ship| %>
-<ul>
-  <li>
-    <a href="/squads/<%= @squad.id %>/ship/<%= ship.id %>" ><%= ship.name %>: <%= ship.cost %> points</a>
-  </li>
-</ul>
+  <% if ship.faction == @squad.faction %>
+    <ul>
+      <li>
+        <a href="/squads/<%= @squad.id %>/ship/<%= ship.id %>" ><%= ship.name %>: <%= ship.cost %> points</a>
+      </li>
+    </ul>
+  <% end %>
 <% end %>
