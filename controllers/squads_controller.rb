@@ -11,8 +11,8 @@ get '/squads' do
   erb(:"squads/index")
 end
 
-post '/squads/:id/delete' do
-  squad = Squad.find(params[:id].to_i)
+post '/squads/:squad_id/delete' do
+  squad = Squad.find(params[:squad_id].to_i)
   squad.delete
   redirect to '/squads'
 end
@@ -27,8 +27,8 @@ post '/squads' do
   redirect to '/squads'
 end
 
-get '/squads/:id/piloted_ships/new' do
-  @squad = Squad.find(params[:id].to_i)
+get '/squads/:squad_id/piloted_ships/new' do
+  @squad = Squad.find(params[:squad_id].to_i)
   erb(:"piloted_ships/new")
 end
 

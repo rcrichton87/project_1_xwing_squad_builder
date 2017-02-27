@@ -30,7 +30,7 @@ CREATE TABLE pilots (
 CREATE TABLE piloted_ships (
   id SERIAL4 PRIMARY KEY,
   pilot_id INT4 REFERENCES pilots(id),
-  ship_id INT4 REFERENCES ships(id),
+  ship_id INT4 REFERENCES ships(id) ON DELETE CASCADE,
   squad_id INT4 REFERENCES squads(id) ON DELETE CASCADE
 );
 

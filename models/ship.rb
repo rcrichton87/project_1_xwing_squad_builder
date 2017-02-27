@@ -50,4 +50,9 @@ class Ship
     return Ship.new(ship)
   end
 
+  def delete
+    sql = "DELETE FROM ships WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
 end
