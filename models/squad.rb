@@ -4,15 +4,16 @@ require_relative('./piloted_ship.rb')
 class Squad
 
   attr_reader :id
-  attr_accessor :name
+  attr_accessor :name, :faction
 
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
+    @faction = options['faction']
   end
 
   def save
-    sql = "INSERT INTO squads (name) VALUES ('#{@name}') RETURNING *;"
+    sql = "INSERT INTO squads (name, faction) VALUES ('#{@name}', '#{@faction}') RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end

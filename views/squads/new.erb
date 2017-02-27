@@ -1,10 +1,20 @@
-<h1>New squad<h1>
+<h1>New squad</h1>
 
 <form method="POST" action="/squads">
   <div>
     <label for="name">Squad Name:</label>
     <input type="text" name="name" id="name"/>
   </div>
+
+  <ul>
+    <li>
+      Faction: 
+    </li>
+      <select id="faction" name="faction">
+          <option value = "imperial" > Imperial </option>
+          <option value = "rebel" > Rebel </option>
+      </select>
+  </ul>
 
   <input type="submit" name="Create Squad"/>
 

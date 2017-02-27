@@ -5,7 +5,8 @@ DROP TABLE squads;
 
 CREATE TABLE squads(
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  faction VARCHAR(255)
 );
 
 CREATE TABLE ships(

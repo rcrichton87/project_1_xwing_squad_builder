@@ -9,10 +9,10 @@ Pilot.delete_all
 Ship.delete_all
 Squad.delete_all
 
-squad1 = Squad.new({'name' => 'Battle of Yavin'})
+squad1 = Squad.new({'name' => 'Battle of Yavin', 'faction' => 'rebel'})
 squad1.save
 
-squad2 = Squad.new({'name' => 'Black Squadron'})
+squad2 = Squad.new({'name' => 'Black Squadron', 'faction' => 'imperial'})
 squad2.save
 
 ship1 = Ship.new({
