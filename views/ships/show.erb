@@ -9,6 +9,8 @@
 <p><%= @ship.name %> - <%= @ship.cost %> points </p>
 <p><%= @ship.stats[1] %>  <%= @ship.stats[3] %>   <%= @ship.stats[5] %>  <%= @ship.stats[7] %></p>
 
+<img src="<%= @ship.manoeuvres %>" />
+
 <form method="post" action="/ships/<%= @ship.id %>/delete" >
   <input type="submit" value="Remove Ship">
 </form> 

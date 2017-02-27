@@ -19,7 +19,7 @@ ship1 = Ship.new({
   'name' => 'T-65 X-Wing',
   'stats' => '{3, 2, 2, 3}',
   'upgrades' => '{"astromech", "torpedo", "modification"}',
-  'manoeuvres' => 'link to manoeuvre image',
+  'manoeuvres' => '/images/x_wing_manoeuvres.png',
   'cost' => 21,
   'faction' => 'rebel'
 })
@@ -29,7 +29,7 @@ ship2 = Ship.new({
   'name' => 'TIE Fighter',
   'stats' => '{2, 3, 0, 3}',
   'upgrades' => '{"modification"}',
-  'manoeuvres' => 'link to manoeuvre image',
+  'manoeuvres' => '/images/tie_fighter_manoeuvres.png',
   'cost' => 12,
   'faction' => 'imperial'
 })
@@ -39,7 +39,7 @@ ship3 = Ship.new({
   'name' => 'Y-Wing',
   'stats' => '{2, 1, 3, 5}',
   'upgrades' => '{"modification", "torpedo", "turret", "astromech"}',
-  'manoeuvres' => 'link to manoeuvre image',
+  'manoeuvres' => '/images/y_wing_manoeuvres.png',
   'cost' => 18,
   'faction' => 'rebel'
 })
@@ -49,7 +49,7 @@ ship4 = Ship.new({
   'name' => 'TIE Advanced',
   'stats' => '{2, 3, 2, 3}',
   'upgrades' => '{"modification", "missile"}',
-  'manoeuvres' => 'link to manoeuvre image',
+  'manoeuvres' => '/images/tie_advanced_manoeuvres.png',
   'cost' => 21,
   'faction' => 'imperial'
 })
