@@ -21,6 +21,12 @@ post '/pilots/:id/update' do
   redirect to "/pilots/#{pilot.ship_id}"
 end
 
+post '/pilots/:pilot_id/delete' do
+  pilot = Pilot.find(params[:pilot_id].to_i)
+  pilot.delete
+  redirect to "/pilots/#{pilot.ship_id}"
+end
+
 post '/pilots/:ship_id' do
   pilot = Pilot.new(params)
   pilot.save
