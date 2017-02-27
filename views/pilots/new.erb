@@ -1,0 +1,29 @@
+<h3>New <%= @ship.name %> Pilot </h3>
+
+<form method="POST" action="/pilots/<%= @ship.id %>">
+
+<div>
+  <label for="name">Pilot Name:</label>
+  <input type="text" name="name" id="name"/>
+</div>
+
+<div>
+  <label for="pilot_skill">Pilot Skill:</label>
+  <input type="number" name="pilot_skill" id="pilot_skill"/>
+</div>
+
+<div>
+  <label for="pilot_ability">Pilot Ability:</label>
+  <input type="text" name="pilot_ability" id="pilot_ability"/>
+</div>
+
+<div>
+  <label for="cost">Cost:</label>
+  <input type="number" name="cost" id="cost"/>
+</div>
+
+<input type="hidden" value="<%= @ship.id %>" name="ship_id"/>
+
+<input type="submit" name="Add ship"/>
+
+</form>
