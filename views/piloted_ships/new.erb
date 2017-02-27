@@ -4,10 +4,21 @@
 
 <% ships.each do |ship| %>
   <% if ship.faction == @squad.faction %>
-    <ul>
-      <li>
-        <a href="/squads/<%= @squad.id %>/ship/<%= ship.id %>" ><%= ship.name %>: <%= ship.cost %> points</a>
-      </li>
-    </ul>
+    <form method="POST" action="/piloted_ships/<%= @squad.id %>">
+      <ul>
+        <li>
+          <%= ship.name %> - <%= ship.cost %>
+        </li>
+        <li>
+          <select id="pilot_id" name="pilot_id">
+            <% pilots = ship.pilots %>
+            <% pilots.each do |pilot| %>
+              <option value = "<%= pilot.id %>">PS<%=pilot.pilot_skill%> <%=pilot.name%> +<%=pilot.cost%> points</option>
+            <% end %>
+          </select>
+        </li>
+      </ul>
+      <input class="button green" type="submit" name="Add <%=ship.name %>"/>
+    </form>
   <% end %>
 <% end %>
