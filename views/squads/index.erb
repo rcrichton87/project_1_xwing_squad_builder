@@ -5,15 +5,20 @@
   <% for piloted_ship in squad.piloted_ships %>
     <ul>
       <li>
-      <%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points 
+        <%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points 
       </li>
     </ul>
   <% end %>
   <p>Total points: <%= squad.total_cost %> </p>
-  <a href="squads/<%= squad.id %>">View Squad</a>
   
+  <p class="button-wrapper">
+    <a class="button green" href="squads/<%= squad.id %>">View Squad</a>
+  </p>
+
   <form method="POST" action="squads/<%= squad.id %>/delete" >
-    <input type="submit" value="Delete Squad">
+    <input class="button red" type="submit" value="Delete Squad">
   </form> 
+
+  <hr>
 
 <% end %>

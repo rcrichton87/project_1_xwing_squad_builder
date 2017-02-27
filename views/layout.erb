@@ -3,18 +3,23 @@
   <head>
     <title>X-Wing Squad Builder</title>
     <link rel="stylesheet" type="text/css" href="/styles/structure.css">
+    <link rel="stylesheet" type="text/css" href="/styles/buttons.css">
   </head>
   <body>
     <nav>
     <img class="banner_image" src="/images/Xwing_logo.png"/>
     <h1>X-Wing Squad Builder</h1>
-      <ul>
-        <li>
-          <a href="/squads">View Squads</a>
-          <a href="/ships">View Ships</a>
-          <a href="/squads/new">New Squad</a>
-        </li>
-      </ul>
+    <div class="flex flex-row" >
+      <li class="button-wrapper">
+        <a class="button green" href="/squads">View Squads</a>
+      </li>
+      <li class="button-wrapper">
+        <a class="button green" href="/ships">View Ships</a>
+      </li>
+      <li class="button-wrapper">
+        <a class ="button green" href="/squads/new">New Squad</a>
+      </li>
+    </div>
     </nav>
 
     <%= yield %>

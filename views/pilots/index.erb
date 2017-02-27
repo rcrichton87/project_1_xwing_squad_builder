@@ -11,11 +11,11 @@
   </ul>
 
   <form method="get" action="/pilots/<%= pilot.id %>/edit" >
-    <input type="submit" value="Edit Pilot">
+    <input class="button green" type="submit" value="Edit Pilot">
   </form> 
 
   <form method="post" action="/pilots/<%= pilot.id %>/delete" >
-    <input type="submit" value="Delete Pilot">
+    <input class="button red" type="submit" value="Delete Pilot">
   </form> 
 
 <% end %>

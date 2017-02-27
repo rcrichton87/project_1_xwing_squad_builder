@@ -2,13 +2,34 @@ h1 {
   color: rgb(231, 30, 40);
 }
 
+div li {
+  list-style-type: none;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
 body {
   background-color: rgb(20, 20, 40);
   color: rgb(255, 255, 255);
   font-family: Helvetica;
 }
 
+a, a:visited {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .banner_image {
   height: 70px;
 }
+
+.flex {
+  display: flex;
+}
+
+
 

@@ -1,21 +1,22 @@
+<p><%= @ship.name %> - <%= @ship.cost %> points </p>
+
 <form method="GET" action="/pilots/<%= @ship.id %>" >
-  <input type="submit" value="View Pilots">
+  <input class="button green" type="submit" value="View Pilots">
 </form> 
 
 <form method="GET" action="/pilots/<%= @ship.id %>/new" >
-  <input type="submit" value="Add New Pilot">
+  <input class="button green" type="submit" value="Add New Pilot">
 </form> 
 
-<p><%= @ship.name %> - <%= @ship.cost %> points </p>
 <p><%= @ship.stats[1] %>  <%= @ship.stats[3] %>   <%= @ship.stats[5] %>  <%= @ship.stats[7] %></p>
 
 <img src="<%= @ship.manoeuvres %>" />
 
 <form method="post" action="/ships/<%= @ship.id %>/delete" >
-  <input type="submit" value="Remove Ship">
+  <input class="button red" type="submit" value="Remove Ship">
 </form> 
 
 <form method="GET" action="/ships/<%= @ship.id %>/edit" >
-  <input type="submit" value="Edit Ship">
+  <input class="button green" type="submit" value="Edit Ship">
 </form> 
 

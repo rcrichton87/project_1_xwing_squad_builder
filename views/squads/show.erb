@@ -1,7 +1,7 @@
 <h1><%= @squad.name %></h1>
 
 <form method="get" action="/squads/<%= @squad.id %>/piloted_ships/new" >
-  <input type="submit" value="Add Ship">
+  <input class="button green" type="submit" value="Add Ship">
 </form> 
 
 <% for piloted_ship in @squad.piloted_ships %>
@@ -11,13 +11,13 @@
       <p><%= piloted_ship.ship.stats[1] %>  <%= piloted_ship.ship.stats[3] %>   <%= piloted_ship.ship.stats[5] %>  <%=piloted_ship.ship.stats[7] %></p>
       <p><%= piloted_ship.pilot.pilot_ability %></p> 
       <form method="GET" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/edit_pilot" >
-        <input type="submit" value="Change Pilot">
+        <input class="button green" type="submit" value="Change Pilot">
       </form> 
     </li>
   
 
   <form method="post" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/delete" >
-    <input type="submit" value="Remove Ship">
+    <input class="button red" type="submit" value="Remove Ship">
   </form> 
   </ul> 
 <% end %>
@@ -25,7 +25,7 @@
 <p>Total points: <%= @squad.total_cost %> </p>
 
 <form method="POST" action="/squads/<%= @squad.id %>/delete" >
-  <input type="submit" value="Delete Squad">
+  <input class="button red" type="submit" value="Delete Squad">
 </form> 
 
 
