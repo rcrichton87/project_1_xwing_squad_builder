@@ -1,0 +1,17 @@
+<h3><%= @ship.name %> Pilots </h3>
+
+<% @pilots.each do |pilot| %>
+  <ul>
+    <li>
+      <%= pilot.pilot_skill %> <%= pilot.name %>: <%= pilot.cost %>
+    </li>
+    <li>
+      <%= pilot.pilot_ability %>
+    </li>
+  </ul>
+
+  <form method="get" action="/pilots/<%= pilot.id %>/edit" >
+    <input type="submit" value="Edit Pilot">
+  </form> 
+
+<% end %>
