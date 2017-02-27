@@ -12,7 +12,7 @@
     </li>
   
 
-  <form method="post" action="<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/delete" >
+  <form method="post" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/delete" >
     <input type="submit" value="Remove Ship">
   </form> 
   </ul> 
@@ -20,11 +20,11 @@
 
 <p>Total points: <%= @squad.total_cost %> </p>
 
-<form method="get" action="<%= @squad.id %>/piloted_ships/new" >
+<form method="get" action="/squads/<%= @squad.id %>/piloted_ships/new" >
   <input type="submit" value="Add Ship">
 </form> 
 
-<form method="POST" action="squads/<%= @squad.id %>/delete" >
+<form method="POST" action="/squads/<%= @squad.id %>/delete" >
   <input type="submit" value="Delete Squad">
 </form> 
 
