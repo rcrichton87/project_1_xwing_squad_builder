@@ -15,6 +15,12 @@ get '/pilots/:ship_id/new' do
   erb(:"pilots/new")
 end
 
+post '/pilots/:id/update' do
+  pilot = Pilot.new(params)
+  pilot.update
+  redirect to "/pilots/#{pilot.ship_id}"
+end
+
 post '/pilots/:ship_id' do
   pilot = Pilot.new(params)
   pilot.save
@@ -22,6 +28,6 @@ post '/pilots/:ship_id' do
 end
 
 get '/pilots/:pilot_id/edit' do
-  @pilot = Pilot.find(params[:id].to_i)
+  @pilot = Pilot.find(params[:pilot_id].to_i)
   erb(:"pilots/edit")
 end 

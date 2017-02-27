@@ -31,7 +31,7 @@ class Pilot
   end
 
   def update
-    sql = "UPDATE pilots SET (name, pilot_skill, pilot_ability, cost, ship_type) = ('#{@name}', #{@pilot_skill}, '#{@pilot_ability}', #{@cost}, '#{@ship_type}') WHERE id = #{@id};"
+    sql = "UPDATE pilots SET (name, pilot_skill, pilot_ability, cost) = ('#{@name}', #{@pilot_skill}, '#{@pilot_ability}', #{@cost}) WHERE id = #{@id};"
     SqlRunner.run(sql) 
   end
 
