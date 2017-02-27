@@ -11,5 +11,5 @@ require_relative('./controllers/ships_controller.rb')
 require_relative('./controllers/pilots_controller.rb')
 
 get '/' do
-  erb(:index)
+  redirect to '/squads'
 end
