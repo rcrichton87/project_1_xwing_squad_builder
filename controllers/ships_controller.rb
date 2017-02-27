@@ -18,6 +18,17 @@ post '/ships' do
   redirect to '/ships'
 end
 
+get '/ships/:ship_id/edit' do
+  @ship = Ship.find(params[:ship_id].to_i)
+  erb(:"ships/edit")
+end
+
+post '/ships/:id/update' do
+  ship = Ship.new(params)
+  ship.update
+  redirect to '/ships'
+end
+
 post '/ships/:ship_id/delete' do
   ship = Ship.find(params[:ship_id].to_i)
   ship.delete

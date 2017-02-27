@@ -1,0 +1,39 @@
+<h3>Edit Ship</h3>
+
+<form method="POST" action="/ships/<%= @ship.id %>/update">
+
+<div>
+  <label for="name">Ship Name:</label>
+  <input type="text" name="name" id="name" value="<%= @ship.name %>"/>
+</div>
+
+<div>
+  <label for="stats">Ship Stats:</label>
+  <input type="text" name="stats" id="stats" value="<%= @ship.stats %>"/>
+  <p>Enter as {Attack, Agility, Shields, Hull}</p>
+</div>
+
+<div>
+  <label for="upgrades">Upgrade Slots:</label>
+  <input type="text" name="upgrades" id="upgrades" value="<%= @ship.upgrades %>"/>
+  <p>Enter as {slot1, slot2 etc}</p>
+</div>
+
+<div>
+  <label for="manoeuvres">Maneuver Dial:</label>
+  <input type="text" name="manoeuvres" id="manoeuvres" value="<%= @ship.manoeuvres %>"/>
+</div>
+
+<div>
+  <label for="cost">Cost:</label>
+  <input type="number" name="cost" id="cost" value="<%= @ship.cost %>"/>
+</div>
+
+<div>
+  <label for="faction">Faction:</label>
+  <input type="text" name="faction" id="faction" value="<%= @ship.faction %>"/>
+</div>
+
+<input type="submit" name="Edit ship"/>
+
+</form>

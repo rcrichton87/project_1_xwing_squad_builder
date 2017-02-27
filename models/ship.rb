@@ -55,4 +55,9 @@ class Ship
     SqlRunner.run(sql)
   end
 
+  def update
+    sql = "UPDATE ships SET (name, stats, upgrades, manoeuvres, faction, cost) = ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}', #{@cost}) WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
 end
