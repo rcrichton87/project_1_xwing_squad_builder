@@ -6,8 +6,8 @@
       <p><%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points </p>
       <p><%= piloted_ship.ship.stats[1] %>  <%= piloted_ship.ship.stats[3] %>   <%= piloted_ship.ship.stats[5] %>  <%=piloted_ship.ship.stats[7] %></p>
       <p><%= piloted_ship.pilot.pilot_ability %></p> 
-      <form method="POST" action="/piloted_ships/<%= piloted_ship.id %>/update" >
-        <input type="submit" value="Change Ship">
+      <form method="GET" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/edit_pilot" >
+        <input type="submit" value="Change Pilot">
       </form> 
     </li>
   

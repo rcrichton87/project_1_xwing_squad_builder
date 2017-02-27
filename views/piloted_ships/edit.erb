@@ -1,0 +1,17 @@
+<h1>Edit Ship</h1>
+
+<form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/update">
+
+<ul>
+  <li>
+    Pilot: 
+  </li>
+    <select id="pilot_id" name="pilot_id">
+      <% ship = @piloted_ship.ship %>
+      <% pilots = ship.pilots %>
+      <% pilots.each do |pilot| %>
+        <option value = "<%= pilot.id %>"  <%= selected="selected" if @piloted_ship.pilot_id == pilot.id %> > <%=pilot.name%> - <%=pilot.cost%></option>
+      <% end %>
+    </select>
+</ul>
+<input type="submit" name="Change Pilot"/>
