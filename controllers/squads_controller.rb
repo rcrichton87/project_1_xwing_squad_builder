@@ -32,14 +32,6 @@ get '/squads/:squad_id/piloted_ships/new' do
   erb(:"piloted_ships/new")
 end
 
-post '/squads/:squad_id/piloted_ships' do
-  pilot = Pilot.find(params[:pilot_id].to_i)
-  ship = pilot.ship
-  piloted_ship = PilotedShip.new({ 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i })
-  piloted_ship.save 
-  redirect to "/squads/#{params[:squad_id].to_i}"
-end
-
 get '/squads/:squad_id' do
   @squad = Squad.find(params[:squad_id].to_i)
   erb(:"squads/show")
@@ -69,5 +61,5 @@ post '/squads/:squad_id/:piloted_ship_id/update' do
   ship = pilot.ship
   piloted_ship = PilotedShip.new({'id' => params[:piloted_ship_id].to_i, 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i })
   piloted_ship.update
-  redirect to '/squads'
+  redirect to "/squads/#{params[:squad_id].to_i}"
 end

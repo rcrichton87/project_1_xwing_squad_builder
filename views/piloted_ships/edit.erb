@@ -3,14 +3,19 @@
 <form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/update">
 
 <ul>
+  <% ship = @piloted_ship.ship %>
+
+  <li>
+    <%= ship.name %> - <%= ship.cost %> points
+  </li>
+
   <li>
     Pilot: 
   </li>
     <select id="pilot_id" name="pilot_id">
-      <% ship = @piloted_ship.ship %>
       <% pilots = ship.pilots %>
       <% pilots.each do |pilot| %>
-        <option value = "<%= pilot.id %>"  <%= selected="selected" if @piloted_ship.pilot_id == pilot.id %> > <%=pilot.name%> - <%=pilot.cost%></option>
+        <option value = "<%= pilot.id %>"  <%= selected="selected" if @piloted_ship.pilot_id == pilot.id %> > <%=pilot.name%>  +<%=pilot.cost%> points</option>
       <% end %>
     </select>
 </ul>
