@@ -1,4 +1,5 @@
 DROP TABLE piloted_ships;
+DROP TABLE piloted_ships_upgrades;
 DROP TABLE pilots;
 DROP TABLE ships;
 DROP TABLE upgrades;
@@ -37,11 +38,16 @@ CREATE TABLE pilots (
   ship_id INT4 REFERENCES ships(id) ON DELETE CASCADE
 );
 
+CREATE TABLE piloted_ships_upgrades(
+  id SERIAL4 PRIMARY KEY,
+  upgrade_hashes_as_string VARCHAR(255)
+);
+
 CREATE TABLE piloted_ships (
   id SERIAL4 PRIMARY KEY,
   pilot_id INT4 REFERENCES pilots(id) ON DELETE CASCADE,
   ship_id INT4 REFERENCES ships(id) ON DELETE CASCADE,
   squad_id INT4 REFERENCES squads(id) ON DELETE CASCADE,
-  upgrades VARCHAR(511)
+  piloted_ships_upgrades_id INT4 REFERENCES piloted_ships_upgrades(id) ON DELETE CASCADE
 );
 

@@ -59,7 +59,7 @@ end
 post '/squads/:squad_id/:piloted_ship_id/update' do
   pilot = Pilot.find(params[:pilot_id].to_i)
   ship = pilot.ship
-  piloted_ship = PilotedShip.new({'id' => params[:piloted_ship_id].to_i, 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i })
+  piloted_ship = PilotedShip.new({'id' => params[:piloted_ship_id].to_i, 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i})
   piloted_ship.update
   redirect to "/squads/#{params[:squad_id].to_i}"
 end

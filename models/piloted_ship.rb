@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./pilot.rb')
 require_relative('./ship.rb')
+require_relative('./piloted_ships_upgrades.rb')
 
 class PilotedShip
 
@@ -12,7 +13,7 @@ class PilotedShip
     @pilot_id = options['pilot_id'].to_i
     @ship_id = options['ship_id'].to_i
     @squad_id = options['squad_id'].to_i 
-    @upgrades = upgrades_hashes(options['upgrades'])
+    @piloted_ships_upgrades_id = options['piloted_ships_upgrades_id'].to_i
   end
 
   def upgrades_hashes(string) # converts a string to hashes
@@ -37,8 +38,22 @@ class PilotedShip
     return string_array.join(", ") #join the array into one long string
   end
 
+  def upgrades
+    sql = "SELECT * FROM piloted_ships_upgrades WHERE id = #{@piloted_ships_upgrades_id};"
+    result = SqlRunner.run(sql).first
+    piloted_ships_upgrades = PilotedShipsUpgrades.new(result)
+    array_of_strings = piloted_ships_upgrades.upgrade_hashes_as_string.split(", ") #split string into array of strings 'upgrade => id' around commas
+    upgrades = Array.new #new empty array
+    array_of_strings.map do |hash_string|
+      key_value_array = hash_string.split(" => ") #split the string around ' => ', giving an array of [key, value]
+      upgradehash = {key_value_array.first.to_s => key_value_array.last.to_i} #use these to make a hash
+      upgrades.push(upgradehash) #push the hash to the upgrades array
+    end
+    return upgrades # return array of upgrade hashes
+  end
+
   def save
-    sql = "INSERT INTO piloted_ships (pilot_id, ship_id, squad_id, upgrades) VALUES (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{upgrades_string}') RETURNING *;"
+    sql = "INSERT INTO piloted_ships (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) VALUES (#{@pilot_id}, #{@ship_id}, #{@squad_id}, #{@piloted_ships_upgrades_id}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end
@@ -66,6 +81,12 @@ class PilotedShip
     total_cost = 0
     total_cost += ship.cost 
     total_cost += pilot.cost
+    self.upgrades.each do |upgrade_hash|
+      upgrade_hash.each_pair do |upgrade_type, upgrade_id|
+        upgrade = Upgrade.find(upgrade_id)
+        total_cost += upgrade.cost
+      end
+    end
     return total_cost
   end
 
@@ -81,7 +102,7 @@ class PilotedShip
   end
 
   def update
-    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, upgrades) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{upgrades_string}') where id = #{@id};"
+    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{piloted_ships_upgrades_id}') where id = #{@id};"
     SqlRunner.run(sql)
   end
 
