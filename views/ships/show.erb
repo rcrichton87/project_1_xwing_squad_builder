@@ -8,7 +8,12 @@
   <input class="button green" type="submit" value="Add New Pilot">
 </form> 
 
-<p class="flex flex-column"><span class="attack">Attack: <%= @ship.stats[1] %></span> <span class="agility">Agility: <%= @ship.stats[3] %></span> <span class="shields">Shields: <%= @ship.stats[5] %></span> <span class="hull">Hull: <%= @ship.stats[7] %></span></p>
+<p class="flex flex-column"><span class="attack">Attack: <%= @ship.stats[0] %></span> <span class="agility">Agility: <%= @ship.stats[1] %></span> <span class="shields">Shields: <%= @ship.stats[2] %></span> <span class="hull">Hull: <%= @ship.stats[3] %></span></p>
+
+<p>Upgrade Slots:</p>
+<% @ship.upgrades.each do |upgrade| %>
+   <p> <%= upgrade.capitalize %> </p>
+<% end %>
 
 <img src="<%= @ship.manoeuvres %>" />
 
@@ -18,5 +23,4 @@
 
 <form method="GET" action="/ships/<%= @ship.id %>/edit" >
   <input class="button green" type="submit" value="Edit Ship">
-</form> 
-
+</form>

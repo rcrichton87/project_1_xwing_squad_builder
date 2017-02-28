@@ -9,15 +9,27 @@ class Ship
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
-    @stats = options['stats'] #array [attack, agility, shield, hull]
-    @upgrades = options['upgrades']
+    @stats = options['stats'].split(", ").map { |s| s.to_i }
+    @upgrades = options['upgrades'].split(', ')
     @manoeuvres = options['manoeuvres']
     @faction = options['faction']
     @cost = options['cost'].to_i
   end
 
+  def stats_string
+    stats_as_string = @stats.join(", ")
+    @stats = stats_as_string
+    return @stats
+  end
+
+  def upgrades_string
+    upgrades_as_string = @upgrades.join(", ")
+    @upgrades = upgrades_as_string
+    return @upgrades
+  end
+
   def save
-    sql = "INSERT INTO ships (name, stats, upgrades, manoeuvres, faction, cost) VALUES ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}', #{@cost}) RETURNING *;"
+    sql = "INSERT INTO ships (name, stats, upgrades, manoeuvres, faction, cost) VALUES ('#{@name}', '#{stats_string}', '#{upgrades_string}', '#{@manoeuvres}', '#{@faction}', #{@cost}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end

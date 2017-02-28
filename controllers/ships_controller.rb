@@ -37,5 +37,6 @@ end
 
 get '/ships/:ship_id' do
   @ship = Ship.find(params[:ship_id].to_i)
+  puts @ship.inspect
   erb(:"ships/show")
 end

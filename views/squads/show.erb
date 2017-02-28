@@ -8,7 +8,7 @@
   <ul>
     <li>
       <p><%= piloted_ship.ship.name %> - <%= piloted_ship.pilot.name %> - <%= piloted_ship.total_cost %> points </p>
-      <p><span class="pilot_skill"><%= piloted_ship.pilot.pilot_skill %></span> <span class="attack"><%= piloted_ship.ship.stats[1] %></span> <span class="agility"><%= piloted_ship.ship.stats[3] %></span> <span class="shields"><%= piloted_ship.ship.stats[5] %></span> <span class="hull"><%= piloted_ship.ship.stats[7] %></span></p>
+      <p><span class="pilot_skill"><%= piloted_ship.pilot.pilot_skill %></span> <span class="attack"><%= piloted_ship.ship.stats[0] %></span> <span class="agility"><%= piloted_ship.ship.stats[1] %></span> <span class="shields"><%= piloted_ship.ship.stats[2] %></span> <span class="hull"><%= piloted_ship.ship.stats[3] %></span></p>
       <p><%= piloted_ship.pilot.pilot_ability %></p> 
       <form method="GET" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/edit_pilot" >
         <input class="button green" type="submit" value="Change Pilot">
