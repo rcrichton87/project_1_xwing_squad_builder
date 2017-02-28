@@ -5,8 +5,7 @@ require_relative('./piloted_ships_upgrades.rb')
 
 class PilotedShip
 
-  attr_reader :id, :pilot_id, :ship_id
-  attr_accessor :upgrades
+  attr_reader :id, :pilot_id, :ship_id, :piloted_ships_upgrades_id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -102,7 +101,7 @@ class PilotedShip
   end
 
   def update
-    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{piloted_ships_upgrades_id}') where id = #{@id};"
+    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{@piloted_ships_upgrades_id}') where id = #{@id};"
     SqlRunner.run(sql)
   end
 
