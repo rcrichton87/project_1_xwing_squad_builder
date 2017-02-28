@@ -24,4 +24,10 @@ class Upgrade
     SqlRunner.run(sql)
   end
 
+  def find(id)
+    sql = "SELECT * FROM upgrades WHERE id = #{id};"
+    upgrade = SqlRunner.run(sql).first
+    return Upgrade.new(upgrade)
+  end
+
 end

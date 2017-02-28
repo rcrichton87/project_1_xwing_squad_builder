@@ -28,7 +28,7 @@ class PilotedShip
 
   def upgrades_string
     string_array = Array.new #create a new array
-    upgrades_string = @upgrades.map do |upgrade| #each hash in the upgrades array
+    @upgrades.each do |upgrade| #each hash in the upgrades array
       upgrade.each_pair do |key, value| # take the key, value pair
         upgrade_as_string = [key, value].join(" => ") #make them into a string 'key => value'
         string_array.push(upgrade_as_string) #add them to an array of strings
@@ -81,7 +81,7 @@ class PilotedShip
   end
 
   def update
-    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}) where id = #{@id};"
+    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, upgrades) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{upgrades_string}') where id = #{@id};"
     SqlRunner.run(sql)
   end
 
