@@ -19,4 +19,9 @@ class Upgrade
     @id = result['id'].to_i
   end
 
+  def self.delete_all
+    sql = "DELETE FROM upgrades;"
+    SqlRunner.run(sql)
+  end
+
 end
