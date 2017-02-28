@@ -30,4 +30,10 @@ class Upgrade
     return Upgrade.new(upgrade)
   end
 
+  def self.get_many(sql)
+    upgrades = SqlRunner.run(sql)
+    result = upgrades.map { |upgrade| Upgrade.new(upgrade) }
+    return result
+  end
+
 end

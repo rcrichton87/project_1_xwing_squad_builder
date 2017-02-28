@@ -1,5 +1,7 @@
 require_relative('../db/sql_runner.rb')
 require_relative('./pilot.rb')
+require_relative('./upgrade.rb')
+require_relative('./piloted_ships_upgrades.rb')
 
 class Ship
 
@@ -18,14 +20,14 @@ class Ship
 
   def stats_string
     stats_as_string = @stats.join(", ")
-    @stats = stats_as_string
-    return @stats
+    stats = stats_as_string
+    return stats
   end
 
   def upgrades_string
     upgrades_as_string = @upgrades.join(", ")
-    @upgrades = upgrades_as_string
-    return @upgrades
+    upgrades = upgrades_as_string
+    return upgrades
   end
 
   def save
@@ -70,6 +72,22 @@ class Ship
   def update
     sql = "UPDATE ships SET (name, stats, upgrades, manoeuvres, faction, cost) = ('#{@name}', '#{@stats}', '#{@upgrades}', '#{@manoeuvres}', '#{@faction}', #{@cost}) WHERE id = #{@id};"
     SqlRunner.run(sql)
+  end
+
+  def default_upgrades
+    sql = "SELECT * FROM upgrades WHERE effect = 'No effect';"
+    upgrades = Upgrade.get_many(sql)
+    default_upgrades = []
+    available_upgrades = @upgrades.join(", ")
+    upgrades.each do |upgrade|
+      if available_upgrades.include?(upgrade.type) == true
+        default_upgrades.push("#{upgrade.type} => #{upgrade.id}")
+      end
+    end
+    upgrades_string = default_upgrades.join(", ")
+    upgrades_object = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => upgrades_string})
+    upgrades_object.save
+    return upgrades_object
   end
 
 end
