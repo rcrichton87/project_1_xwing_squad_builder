@@ -51,4 +51,14 @@ class Upgrade
     SqlRunner.run(sql)
   end
 
+  def self.all_types
+    all_upgrades = self.all
+    upgrade_types = []
+    all_upgrades.each do |upgrade|
+      upgrade_types.push(upgrade.type)
+    end
+    upgrade_types.uniq!
+    return upgrade_types
+  end
+
 end
