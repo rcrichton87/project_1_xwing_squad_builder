@@ -41,4 +41,9 @@ class Upgrade
     return self.get_many(sql)
   end
 
+  def delete
+    sql = "DELETE FROM upgrades WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
 end
