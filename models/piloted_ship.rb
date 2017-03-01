@@ -15,27 +15,27 @@ class PilotedShip
     @piloted_ships_upgrades_id = options['piloted_ships_upgrades_id'].to_i
   end
 
-  def upgrades_hashes(string) # converts a string to hashes
-    array_of_strings = string.split(", ") #split string into array of strings 'upgrade => id' around commas
-    upgrades = Array.new #new empty array
-    array_of_strings.map do |hash_string|
-      key_value_array = hash_string.split(" => ") #split the string around ' => ', giving an array of [key, value]
-      upgradehash = {key_value_array.first.to_s => key_value_array.last.to_i} #use these to make a hash
-      upgrades.push(upgradehash) #push the hash to the upgrades array
-    end
-    return upgrades # return array of upgrade hashes
-  end
+  # def upgrades_hashes(string) # converts a string to hashes
+  #   array_of_strings = string.split(", ") #split string into array of strings 'upgrade => id' around commas
+  #   upgrades = Array.new #new empty array
+  #   array_of_strings.map do |hash_string|
+  #     key_value_array = hash_string.split(" => ") #split the string around ' => ', giving an array of [key, value]
+  #     upgradehash = {key_value_array.first.to_s => key_value_array.last.to_i} #use these to make a hash
+  #     upgrades.push(upgradehash) #push the hash to the upgrades array
+  #   end
+  #   return upgrades # return array of upgrade hashes
+  # end
 
-  def upgrades_string(hashes)
-    string_array = Array.new #create a new array
-    upgrade_hashes.each do |upgrade_hash| #each hash in the upgrades array
-      upgrade_hash.each_pair do |key, value| # take the key, value pair
-        upgrade_as_string = [key, value].join(" => ") #make them into a string 'key => value'
-        string_array.push(upgrade_as_string) #add them to an array of strings
-      end
-    end
-    return string_array.join(", ") #join the array into one long string
-  end
+  # def upgrades_string(hashes)
+  #   string_array = Array.new #create a new array
+  #   upgrade_hashes.each do |upgrade_hash| #each hash in the upgrades array
+  #     upgrade_hash.each_pair do |key, value| # take the key, value pair
+  #       upgrade_as_string = [key, value].join(" => ") #make them into a string 'key => value'
+  #       string_array.push(upgrade_as_string) #add them to an array of strings
+  #     end
+  #   end
+  #   return string_array.join(", ") #join the array into one long string
+  # end
 
   def upgrades
     sql = "SELECT * FROM piloted_ships_upgrades WHERE id = #{@piloted_ships_upgrades_id};"
