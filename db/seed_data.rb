@@ -188,6 +188,14 @@ upgrade6 = Upgrade.new({
 })
 upgrade6.save
 
+upgrade7 = Upgrade.new({
+  'name' => 'R2 Astromech',
+  'type' => 'astromech',
+  'cost' => 1,
+  'effect' => 'You may treat all 1 and 2 speed maneuvers as green maneuvers.'
+})
+upgrade7.save
+
 piloted_ships_upgrades1 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade6.id}, modification => #{upgrade2.id}, torpedo => #{upgrade3.id}"})
 piloted_ships_upgrades1.save
 

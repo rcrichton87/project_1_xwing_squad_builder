@@ -22,7 +22,7 @@ class PilotedShipsUpgrades
   end
 
   def update
-    sql = "UPDATE piloted_ships_upgrades SET (upgrade_hashes_as_string) = ('#{@upgrade_hashes_as_string}');"
+    sql = "UPDATE piloted_ships_upgrades SET (upgrade_hashes_as_string) = ('#{@upgrade_hashes_as_string}') WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
 
