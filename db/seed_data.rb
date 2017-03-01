@@ -196,6 +196,22 @@ upgrade7 = Upgrade.new({
 })
 upgrade7.save
 
+upgrade8 = Upgrade.new({
+  'name' => 'Vectored Thrusters',
+  'type' => 'modification',
+  'cost' => 2,
+  'effect' => 'Your action bar gains the barrel roll action.'
+})
+upgrade8.save
+
+upgrade9 = Upgrade.new({
+  'name' => 'Proton Torpedo',
+  'type' => 'torpedo',
+  'cost' => 4,
+  'effect' => '4 Dice Attack (Target Lock).  Spend your target lock to perform this attack.  You may change 1 of your focus results to a critical result.'
+})
+upgrade9.save
+
 piloted_ships_upgrades1 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade6.id}, modification => #{upgrade2.id}, torpedo => #{upgrade3.id}"})
 piloted_ships_upgrades1.save
 

@@ -67,7 +67,8 @@ end
 post '/squads/:squad_id/:piloted_ship_id/:piloted_ships_upgrades_id/update/upgrade' do
   upgrade = Upgrade.find(params[:upgrade_id].to_i)
   piloted_ships_upgrades = PilotedShipsUpgrades.find(params[:piloted_ships_upgrades_id].to_i)
-  piloted_ships_upgrades.update_string(upgrade)
-  piloted_ships_upgrades.update
+  updated_string = piloted_ships_upgrades.update_string(upgrade)
+  piloted_ships_upgrades_update = PilotedShipsUpgrades.new({'id' => params[:piloted_ships_upgrades_id].to_i, 'upgrade_hashes_as_string' => updated_string})
+  piloted_ships_upgrades_update.update
   redirect to "/squads/#{params[:squad_id].to_i}"
 end
