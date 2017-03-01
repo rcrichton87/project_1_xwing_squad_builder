@@ -1,0 +1,27 @@
+<h3>Edit <%= @upgrade.name %></h3>
+
+<form method="POST" action="/upgrades/<%= @upgrade.id %>/update">
+
+<div>
+  <label for="name">Upgrade Name:</label>
+  <input type="text" name="name" id="name" value="<%= @upgrade.name %>"/>
+</div>
+
+<div>
+  <label for="type">Upgrade Type:</label>
+  <input type="text" name="type" id="type" value="<%= @upgrade.type %>"/>
+</div>
+
+<div>
+  <label for="cost">Cost:</label>
+  <input type="number" name="cost" id="cost" value="<%= @upgrade.cost %>"/>
+</div>
+
+<div>
+  <label for="effect">Effect:</label>
+  <input type="text" name="effect" id="effect" value="<%= @upgrade.effect %>"/>
+</div>
+
+<input class="button green" type="submit" name="Edit Upgrade"/>
+
+</form>

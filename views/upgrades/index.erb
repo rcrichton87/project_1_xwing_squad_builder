@@ -6,13 +6,21 @@
 
 <% upgrade_types.each do |upgrade_type| %>
 
-  <h4> <%= upgrade_type.capitalize + "s" %> </h3>
+  <h4> <%= upgrade_type.capitalize + "s" %> </h4>
 
   <% @upgrades.each do |upgrade| %>
     <% if upgrade.type == upgrade_type %>
       <p><%= upgrade.name %> - <%= upgrade.cost %> points </p>
       <p> <%= upgrade.effect %> </p>
+      <form method="post" action="/upgrades/<%= upgrade.id %>/delete" >
+        <input class="button red" type="submit" value="Remove Upgrade">
+      </form>
+      <form method="get" action="/upgrades/<%= upgrade.id %>/edit" >
+        <input class="button green" type="submit" value="Edit Upgrade">
+      </form>
+      <hr/>  
     <% end %>
   <% end %>
+ <hr/>
  <hr/>
 <% end %>
