@@ -7,3 +7,7 @@ get '/upgrades' do
  @upgrades = Upgrade.all
  erb(:"upgrades/index")
 end
+
+get '/upgrades/new' do
+ erb(:"upgrades/new")
+end

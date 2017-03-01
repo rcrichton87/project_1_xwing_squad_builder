@@ -1,10 +1,12 @@
 <h1>All Upgrades:</h1>
 
+<a class ="button green" href="/upgrades/new">New Upgrade</a>
+
 <% upgrade_types = Upgrade.all_types %>
 
 <% upgrade_types.each do |upgrade_type| %>
 
-  <h4> <%= upgrade_type.capitalize %> </h3>
+  <h4> <%= upgrade_type.capitalize + "s" %> </h3>
 
   <% @upgrades.each do |upgrade| %>
     <% if upgrade.type == upgrade_type %>
