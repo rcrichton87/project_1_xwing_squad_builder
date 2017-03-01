@@ -46,4 +46,9 @@ class Upgrade
     SqlRunner.run(sql)
   end
 
+  def update
+    sql = "UPDATE upgrades SET (name, type, cost, effect) = ('#{@name}', '#{@type}', #{@cost}, '#{@effect}');"
+    SqlRunner.run(sql)
+  end
+
 end
