@@ -23,6 +23,11 @@ ul {
   list-style-type: none;
 }
 
+.form_row {
+  flex-direction: row;
+  padding: 10px;
+}
+
 .banner_image {
   height: 70px;
 }

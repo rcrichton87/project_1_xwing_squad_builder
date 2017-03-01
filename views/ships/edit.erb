@@ -2,37 +2,37 @@
 
 <form method="POST" action="/ships/<%= @ship.id %>/update">
 
-<div>
+<p class="form-row">
   <label for="name">Ship Name:</label>
   <input type="text" name="name" id="name" value="<%= @ship.name %>"/>
-</div>
+</p>
 
-<div>
+<p class="form-row">
   <label for="stats">Ship Stats:</label>
-  <input type="text" name="stats" id="stats" value="<%= @ship.stats %>"/>
-  <p>Enter as {Attack, Agility, Shields, Hull}</p>
-</div>
+  <input type="text" name="stats" id="stats" value="<%= @ship.stats.join(", ") %>"/>
+  <p>Enter stats as Attack, Agility, Shields, Hull</p>
+</p>
 
-<div>
+<p class="form-row">
   <label for="upgrades">Upgrade Slots:</label>
-  <input type="text" name="upgrades" id="upgrades" value="<%= @ship.upgrades %>"/>
-  <p>Enter as {slot1, slot2 etc}</p>
-</div>
+  <input type="text" name="upgrades" id="upgrades" value="<%= @ship.upgrades.join(", ") %>"/>
+  <p>Enter uprade slots as slot1, slot2 etc</p>
+</p>
 
-<div>
+<p class="form-row">
   <label for="manoeuvres">Maneuver Dial:</label>
   <input type="text" name="manoeuvres" id="manoeuvres" value="<%= @ship.manoeuvres %>"/>
-</div>
+</p>
 
-<div>
+<p class="form-row">
   <label for="cost">Cost:</label>
   <input type="number" name="cost" id="cost" value="<%= @ship.cost %>"/>
-</div>
+</p>
 
-<div>
+<p class="form-row">
   <label for="faction">Faction:</label>
   <input type="text" name="faction" id="faction" value="<%= @ship.faction %>"/>
-</div>
+</p>
 
 <input class="button green" type="submit" name="Edit ship"/>
 
