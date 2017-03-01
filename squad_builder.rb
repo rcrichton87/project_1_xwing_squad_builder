@@ -10,6 +10,8 @@ require_relative('./controllers/squads_controller.rb')
 require_relative('./controllers/piloted_ships_controller.rb')
 require_relative('./controllers/ships_controller.rb')
 require_relative('./controllers/pilots_controller.rb')
+require_relative('./controllers/upgrades_controller.rb')
+
 
 get '/' do
   redirect to '/squads'

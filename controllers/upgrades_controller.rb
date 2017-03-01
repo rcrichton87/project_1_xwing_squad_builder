@@ -4,6 +4,6 @@ require( 'pry-byebug' )
 require_relative('../models/upgrade.rb')
 
 get '/upgrades' do
- @upgrades = Upgrades.all
+ @upgrades = Upgrade.all
  erb(:"upgrades/index")
 end
