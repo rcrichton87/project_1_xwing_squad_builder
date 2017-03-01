@@ -42,7 +42,7 @@ ship2.save
 ship3 = Ship.new({
   'name' => 'Y-Wing',
   'stats' => '2, 1, 3, 5',
-  'upgrades' => 'modification, torpedo1, torpedo2, turret, astromech',
+  'upgrades' => 'modification, torpedo, turret, astromech',
   'manoeuvres' => '/images/y_wing_manoeuvres.png',
   'cost' => 18,
   'faction' => 'rebel'
@@ -194,10 +194,10 @@ piloted_ships_upgrades1.save
 piloted_ships_upgrades2 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade1.id}, modification => #{upgrade2.id}, torpedo => #{upgrade3.id}"})
 piloted_ships_upgrades2.save
 
-piloted_ships_upgrades3 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade1.id}, modification => #{upgrade2.id}, torpedo1 => #{upgrade3.id}, torpedo2 => #{upgrade3.id}, turret => #{upgrade5.id}"})
+piloted_ships_upgrades3 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade1.id}, modification => #{upgrade2.id}, torpedo => #{upgrade3.id}, turret => #{upgrade5.id}"})
 piloted_ships_upgrades3.save
 
-piloted_ships_upgrades4 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade1.id}, modification => #{upgrade2.id}, torpedo1 => #{upgrade3.id}, torpedo2 => #{upgrade3.id}, turret => #{upgrade5.id}"})
+piloted_ships_upgrades4 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "astromech => #{upgrade1.id}, modification => #{upgrade2.id}, torpedo => #{upgrade3.id}, turret => #{upgrade5.id}"})
 piloted_ships_upgrades4.save
 
 piloted_ships_upgrades5 = PilotedShipsUpgrades.new({'upgrade_hashes_as_string' => "modification => #{upgrade2.id}, missile => #{upgrade4.id}"})

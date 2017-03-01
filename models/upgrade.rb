@@ -36,4 +36,9 @@ class Upgrade
     return result
   end
 
+  def self.all
+    sql = "SELECT * FROM upgrades;"
+    return self.get_many(sql)
+  end
+
 end

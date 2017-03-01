@@ -1,7 +1,5 @@
 <h1>Edit Ship</h1>
 
-<form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/<%= @piloted_ship.piloted_ships_upgrades_id %>/update">
-
 <ul>
   <% ship = @piloted_ship.ship %>
 
@@ -9,14 +7,42 @@
     <%= ship.name %> - <%= ship.cost %> points
   </li>
 
-  <li>
-    Pilot: 
-  </li>
-    <select id="pilot_id" name="pilot_id">
-      <% pilots = ship.pilots %>
-      <% pilots.each do |pilot| %>
-        <option value = "<%= pilot.id %>"  <%= selected="selected" if @piloted_ship.pilot_id == pilot.id %> > <%=pilot.name%>  +<%=pilot.cost%> points</option>
+  <form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/<%= @piloted_ship.piloted_ships_upgrades_id %>/update/pilot">
+
+    <li>
+      Pilot: 
+    </li>
+      <select id="pilot_id" name="pilot_id">
+        <% pilots = ship.pilots %>
+        <% pilots.each do |pilot| %>
+          <option value = "<%= pilot.id %>"  <%= selected="selected" if @piloted_ship.pilot_id == pilot.id %> > <%=pilot.name%>  +<%=pilot.cost%> points</option>
+        <% end %>
+      </select>
+  </ul>
+  <input class="button green" type="submit" name="Change Pilot"/>
+</form>
+
+<% upgrade_slots = ship.upgrades %>
+<% upgrade_slots.each do |upgrade_slot| %>
+
+<form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/<%= @piloted_ship.piloted_ships_upgrades_id %>/update/upgrade">
+
+  <p> <%= upgrade_slot.capitalize %>: </p>
+
+  <select id="upgrade_id" name="upgrade_id">
+
+      <% all_upgrades = Upgrade.all %>
+
+        <% all_upgrades.each do |single_upgrade| %>
+
+        <% if upgrade_slot.include?(single_upgrade.type) %>
+          <option value = "<%= single_upgrade.id %>"  <% selected="selected"  %> > <%=single_upgrade.name%>  +<%=single_upgrade.cost%> points</option>
+        <% end %>
+
       <% end %>
     </select>
-</ul>
-<input class="button green" type="submit" name="Change Pilot"/>
+    <input class="button green" type="submit" name="Change Upgrade"/>
+  <% end %>
+
+  
+</form>

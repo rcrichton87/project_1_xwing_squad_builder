@@ -26,10 +26,10 @@ class PilotedShip
     return upgrades # return array of upgrade hashes
   end
 
-  def upgrades_string
+  def upgrades_string(hashes)
     string_array = Array.new #create a new array
-    @upgrades.each do |upgrade| #each hash in the upgrades array
-      upgrade.each_pair do |key, value| # take the key, value pair
+    upgrade_hashes.each do |upgrade_hash| #each hash in the upgrades array
+      upgrade_hash.each_pair do |key, value| # take the key, value pair
         upgrade_as_string = [key, value].join(" => ") #make them into a string 'key => value'
         string_array.push(upgrade_as_string) #add them to an array of strings
       end
