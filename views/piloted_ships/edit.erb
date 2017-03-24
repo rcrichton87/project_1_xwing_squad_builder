@@ -32,12 +32,18 @@
   <select id="upgrade_id" name="upgrade_id">
 
       <% all_upgrades = Upgrade.all %>
+      <% available_upgrades = [] %>
 
         <% all_upgrades.each do |single_upgrade| %>
 
         <% if upgrade_slot == single_upgrade.type %>
-          <option value = "<%= single_upgrade.id %>"  <%= selected="selected" if @piloted_ship.upgrades.include?({"#{single_upgrade.type}" => single_upgrade.id}) %> > <%=single_upgrade.name%>  +<%=single_upgrade.cost%> points</option>
+          <option value = "<%= single_upgrade.id %>"  <%= selected="selected" if ship.has_upgrade(single_upgrade) %> > <%=single_upgrade.name%>  +<%=single_upgrade.cost%> points</option>
         <% end %>
+
+
+
+
+        <option value = "<%= single_upgrade.id %>"  <%= selected="selected" if  %> > <%=single_upgrade.name%>  +<%=single_upgrade.cost%> points</option>
 
       <% end %>
     </select>

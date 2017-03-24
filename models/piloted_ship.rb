@@ -79,4 +79,14 @@ class PilotedShip
     return ship_upgrades
   end
 
+  def has_upgrade(upgrade)
+    equipped_upgrades = self.ship_upgrades
+    equipped_upgrades.each do |equipped_upgrade|
+      if equipped_upgrade.upgrade_id == upgrade.id
+        return true
+      end
+    end
+    return false
+  end
+
 end
