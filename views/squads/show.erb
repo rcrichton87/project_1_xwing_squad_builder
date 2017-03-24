@@ -13,12 +13,9 @@
 
       <p>Upgrades:</p>
 
-      <% piloted_ship.upgrades.each do |upgrade_hash| %>
-        <% upgrade_hash.each_pair do |upgrade_type, upgrade_id| %>
-          <% upgrade = Upgrade.find(upgrade_id) %>
-          <p> <%= upgrade.type.capitalize %> - <%= upgrade.name %> - <%= upgrade.cost %> points</p>
-          <p> <%= upgrade.effect %>
-        <% end %>
+      <% piloted_ship.upgrades.each do |upgrade| %>
+        <p> <%= upgrade.type.capitalize %> - <%= upgrade.name %> - <%= upgrade.cost %> points</p>
+        <p> <%= upgrade.effect %>
       <% end %>
 
       <form method="GET" action="/squads/<%= @squad.id %>/piloted_ships/<%= piloted_ship.id %>/edit" >
