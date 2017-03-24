@@ -25,7 +25,7 @@
 <% upgrade_slots = ship.upgrades %>
 <% upgrade_slots.each do |upgrade_slot| %>
 
-<form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/<%= @piloted_ship.piloted_ships_upgrades_id %>/update/upgrade">
+<form method="POST" action="/squads/<%= @squad.id %>/<%= @piloted_ship.id %>/update/upgrade">
 
   <p> <%= upgrade_slot.capitalize %>: </p>
 

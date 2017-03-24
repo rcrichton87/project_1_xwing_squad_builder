@@ -74,7 +74,7 @@ class PilotedShip
   end
 
   def ship_upgrades()
-    sql = "SELECT * FROM upgrades WHERE piloted_ship_id = #{@id};"
+    sql = "SELECT * FROM ship_upgrades WHERE piloted_ship_id = #{@id};"
     ship_upgrades = ShipUpgrades.get_many(sql)
     return ship_upgrades
   end

@@ -10,7 +10,7 @@ class ShipUpgrades
   def initialize(options)
     @id = options['id'].to_i
     @piloted_ship_id = options['piloted_ship_id'].to_i
-    @upgrade_id = options['ship_id'].to_i
+    @upgrade_id = options['upgrade_id'].to_i
   end
 
   def save
@@ -59,6 +59,8 @@ class ShipUpgrades
 
   def upgrade()
     sql = "SELECT * FROM upgrades WHERE id = #{@upgrade_id};"
+    upgrade = SqlRunner.run(sql).first
+    return Upgrade.new(upgrade)
   end
 
 end

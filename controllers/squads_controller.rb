@@ -73,7 +73,7 @@ post '/squads/:squad_id/:piloted_ship_id/update/upgrade' do
   ship_upgrades.each do |ship_upgrade|
     old_upgrade = ship_upgrade.upgrade
     if old_upgrade.type == new_upgrade.type
-      new_ship_upgrade = ShipUpgrade.new({'id' => ship_upgrade.id, 'piloted_ship_id' => piloted_ship.id, 'upgrade_id' => new_upgrade.id})
+      new_ship_upgrade = ShipUpgrades.new({'id' => ship_upgrade.id, 'piloted_ship_id' => piloted_ship.id, 'upgrade_id' => new_upgrade.id})
       new_ship_upgrade.update
     end
   end
