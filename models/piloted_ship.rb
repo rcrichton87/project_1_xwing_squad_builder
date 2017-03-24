@@ -5,54 +5,25 @@ require_relative('./piloted_ships_upgrades.rb')
 
 class PilotedShip
 
-  attr_reader :id, :pilot_id, :ship_id, :piloted_ships_upgrades_id
+  attr_reader :id, :pilot_id, :ship_id
 
   def initialize(options)
     @id = options['id'].to_i
     @pilot_id = options['pilot_id'].to_i
     @ship_id = options['ship_id'].to_i
     @squad_id = options['squad_id'].to_i 
-    @piloted_ships_upgrades_id = options['piloted_ships_upgrades_id'].to_i
   end
 
-  # def upgrades_hashes(string) # converts a string to hashes
-  #   array_of_strings = string.split(", ") #split string into array of strings 'upgrade => id' around commas
-  #   upgrades = Array.new #new empty array
-  #   array_of_strings.map do |hash_string|
-  #     key_value_array = hash_string.split(" => ") #split the string around ' => ', giving an array of [key, value]
-  #     upgradehash = {key_value_array.first.to_s => key_value_array.last.to_i} #use these to make a hash
-  #     upgrades.push(upgradehash) #push the hash to the upgrades array
-  #   end
-  #   return upgrades # return array of upgrade hashes
-  # end
-
-  # def upgrades_string(hashes)
-  #   string_array = Array.new #create a new array
-  #   upgrade_hashes.each do |upgrade_hash| #each hash in the upgrades array
-  #     upgrade_hash.each_pair do |key, value| # take the key, value pair
-  #       upgrade_as_string = [key, value].join(" => ") #make them into a string 'key => value'
-  #       string_array.push(upgrade_as_string) #add them to an array of strings
-  #     end
-  #   end
-  #   return string_array.join(", ") #join the array into one long string
-  # end
-
   def upgrades
-    sql = "SELECT * FROM piloted_ships_upgrades WHERE id = #{@piloted_ships_upgrades_id};"
-    result = SqlRunner.run(sql).first
-    piloted_ships_upgrades = PilotedShipsUpgrades.new(result)
-    array_of_strings = piloted_ships_upgrades.upgrade_hashes_as_string.split(", ") #split string into array of strings 'upgrade => id' around commas
-    upgrades = Array.new #new empty array
-    array_of_strings.map do |hash_string|
-      key_value_array = hash_string.split(" => ") #split the string around ' => ', giving an array of [key, value]
-      upgradehash = {key_value_array.first.to_s => key_value_array.last.to_i} #use these to make a hash
-      upgrades.push(upgradehash) #push the hash to the upgrades array
-    end
-    return upgrades # return array of upgrade hashes
+    sql = "SELECT upgrades.* FROM
+    upgrades INNER JOIN ship_upgrades ON upgrade_id = upgrades.id
+    WHERE piloted_ship_id = #{@id};"
+    upgrades = Upgrade.get_many(sql)
+    return upgrades
   end
 
   def save
-    sql = "INSERT INTO piloted_ships (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) VALUES (#{@pilot_id}, #{@ship_id}, #{@squad_id}, #{@piloted_ships_upgrades_id}) RETURNING *;"
+    sql = "INSERT INTO piloted_ships (pilot_id, ship_id, squad_id) VALUES (#{@pilot_id}, #{@ship_id}, #{@squad_id}) RETURNING *;"
     result = SqlRunner.run(sql).first
     @id = result['id'].to_i
   end
@@ -101,8 +72,14 @@ class PilotedShip
   end
 
   def update
-    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id, piloted_ships_upgrades_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}, '#{@piloted_ships_upgrades_id}') where id = #{@id};"
+    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}') where id = #{@id};"
     SqlRunner.run(sql)
+  end
+
+  def ship_upgrades()
+    sql = "SELECT * FROM upgrades WHERE piloted_ship_id = #{@id};"
+    ship_upgrades = ShipUpgrades.get_many(sql)
+    return ship_upgrades
   end
 
 end

@@ -5,6 +5,8 @@ require_relative('../models/squad.rb')
 require_relative('../models/pilot.rb')
 require_relative('../models/ship.rb')
 require_relative('../models/piloted_ship.rb')
+require_relative('../models/ship_upgrades.rb')
+
 
 get '/squads' do
   @squads = Squad.all
@@ -56,19 +58,25 @@ get '/squads/:squad_id/piloted_ships/:piloted_ship_id/edit' do
   erb(:"piloted_ships/edit")
 end
 
-post '/squads/:squad_id/:piloted_ship_id/:piloted_ship_upgrades_id/update/pilot' do
+post '/squads/:squad_id/:piloted_ship_id/update/pilot' do
   pilot = Pilot.find(params[:pilot_id].to_i)
   ship = pilot.ship
-  piloted_ship = PilotedShip.new({'id' => params[:piloted_ship_id].to_i, 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i, 'piloted_ships_upgrades_id' => params[:piloted_ship_upgrades_id].to_i})
+  piloted_ship = PilotedShip.new({'id' => params[:piloted_ship_id].to_i, 'pilot_id' => pilot.id, 'ship_id' => ship.id, 'squad_id' => params[:squad_id].to_i})
   piloted_ship.update
   redirect to "/squads/#{params[:squad_id].to_i}"
 end
 
-post '/squads/:squad_id/:piloted_ship_id/:piloted_ships_upgrades_id/update/upgrade' do
-  upgrade = Upgrade.find(params[:upgrade_id].to_i)
-  piloted_ships_upgrades = PilotedShipsUpgrades.find(params[:piloted_ships_upgrades_id].to_i)
-  updated_string = piloted_ships_upgrades.update_string(upgrade)
-  piloted_ships_upgrades_update = PilotedShipsUpgrades.new({'id' => params[:piloted_ships_upgrades_id].to_i, 'upgrade_hashes_as_string' => updated_string})
-  piloted_ships_upgrades_update.update
+post '/squads/:squad_id/:piloted_ship_id/update/upgrade' do
+  new_upgrade = Upgrade.find(params[:upgrade_id].to_i)
+  piloted_ship = PilotedShip.find(params[:piloted_ship_id].to_i)
+  piloted_ship_upgrades = piloted_ship.upgrades
+  ship_upgrades = piloted_ship.ship_upgrades
+  ship_upgrades.each do |ship_upgrade|
+    old_upgrade = ship_upgrade.upgrade
+    if old_upgrade.type == new_upgrade.type
+      new_ship_upgrade = ShipUpgrade.new({'id' => ship_upgrade.id, 'piloted_ship_id' => piloted_ship.id, 'upgrade_id' => new_upgrade.id})
+      new_ship_upgrade.update
+    end
+  end
   redirect to "/squads/#{params[:squad_id].to_i}"
 end
