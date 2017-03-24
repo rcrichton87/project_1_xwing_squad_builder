@@ -69,7 +69,6 @@ end
 post '/squads/:squad_id/:piloted_ship_id/update/upgrade' do
   new_upgrade = Upgrade.find(params[:upgrade_id].to_i)
   piloted_ship = PilotedShip.find(params[:piloted_ship_id].to_i)
-  piloted_ship_upgrades = piloted_ship.upgrades
   ship_upgrades = piloted_ship.ship_upgrades
   ship_upgrades.each do |ship_upgrade|
     old_upgrade = ship_upgrade.upgrade

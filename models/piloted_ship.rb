@@ -51,11 +51,8 @@ class PilotedShip
     total_cost = 0
     total_cost += ship.cost 
     total_cost += pilot.cost
-    self.upgrades.each do |upgrade_hash|
-      upgrade_hash.each_pair do |upgrade_type, upgrade_id|
-        upgrade = Upgrade.find(upgrade_id)
-        total_cost += upgrade.cost
-      end
+    self.upgrades.each do |upgrade|
+       total_cost += upgrade.cost
     end
     return total_cost
   end
