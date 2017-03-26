@@ -14,4 +14,10 @@ class TestSquad < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_name
+    expected = 'Rogue Squadron'
+    actual = @squad.name
+    assert_equal(expected, actual)
+  end
+
 end
