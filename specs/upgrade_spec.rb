@@ -39,4 +39,10 @@ class TestUpgrade < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_type
+    expected = 'torpedo'
+    @upgrade.type = 'torpedo'
+    assert_equal(expected, @upgrade.type)
+  end
+
 end
