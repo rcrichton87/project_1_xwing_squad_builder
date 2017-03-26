@@ -50,4 +50,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_upgrades
+    @ship.upgrades = ['turret']
+    expected = ['turret']
+    assert_equal(expected, @ship.upgrades)
+  end
+
 end
