@@ -21,4 +21,10 @@ class TestUpgrade < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_name
+    expected = 'R2-D2'
+    actual = @upgrade.name
+    assert_equal(expected, actual)
+  end
+
 end
