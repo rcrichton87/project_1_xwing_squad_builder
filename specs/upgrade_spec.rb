@@ -63,4 +63,10 @@ class TestUpgrade < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_effect
+    expected = 'None'
+    @upgrade.effect = 'None'
+    assert_equal(expected, @upgrade.effect)
+  end
+
 end
