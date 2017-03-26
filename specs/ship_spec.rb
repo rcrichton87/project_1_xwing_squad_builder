@@ -98,4 +98,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_upgrades_string
+    expected = 'astromech, torpedo, modification'
+    actual = @ship.upgrades_string
+    assert_equal(expected, actual)
+  end
+
 end
