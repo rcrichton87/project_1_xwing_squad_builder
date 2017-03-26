@@ -19,11 +19,17 @@ class TestPilot < MiniTest::Test
     @pilot = Pilot.new({
       'id' => '4',
       'name' => 'Luke Skywalker',
-      'pilot_skill' => 8,
+      'pilot_skill' => '8',
       'pilot_ability' => 'When defending, you may change one focus result to an evade result.',
-      'cost' => 7,
+      'cost' => '7',
       'ship_id' => @ship.id
     })
+  end
+
+  def test_id
+    expected = 4
+    actual = @pilot.id
+    assert_equal(expected, actual)
   end
 
   def test_name
