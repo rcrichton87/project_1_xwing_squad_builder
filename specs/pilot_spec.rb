@@ -50,6 +50,12 @@ class TestPilot < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_pilot_skill
+    @pilot.pilot_skill = 9
+    expected = 9
+    assert_equal(expected, @pilot.pilot_skill)
+  end
+
 
 
 end
