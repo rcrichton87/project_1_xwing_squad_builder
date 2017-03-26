@@ -6,11 +6,12 @@ class TestShip < MiniTest::Test
 
   def setup
     @ship = Ship.new({
+      'id' => '5',
       'name' => 'T-65 X-Wing',
       'stats' => '3, 2, 2, 3',
       'upgrades' => 'astromech, torpedo, modification',
       'manoeuvres' => '/images/x_wing_manoeuvres.png',
-      'cost' => 21,
+      'cost' => '21',
       'faction' => 'rebel'
     })
   end
@@ -37,6 +38,12 @@ class TestShip < MiniTest::Test
     expected = [3,3,3,3]
     @ship.stats = [3,3,3,3]
     assert_equal(expected, @ship.stats)
+  end
+
+  def test_upgrades
+    expected = ['astromech', 'torpedo', 'modification']
+    actual = @ship.upgrades
+    assert_equal(expected, actual)
   end
 
 end
