@@ -32,4 +32,10 @@ class TestSquad < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_faction
+    expected = 'scum'
+    @squad.faction = 'scum'
+    assert_equal(expected, @squad.faction)
+  end
+
 end
