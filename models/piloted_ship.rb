@@ -69,7 +69,7 @@ class PilotedShip
   end
 
   def update
-    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}') where id = #{@id};"
+    sql = "UPDATE piloted_ships SET (pilot_id, ship_id, squad_id) = (#{@pilot_id}, #{@ship_id}, #{@squad_id}) where id = #{@id};"
     SqlRunner.run(sql)
   end
 
