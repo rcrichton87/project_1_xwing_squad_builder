@@ -1,0 +1,18 @@
+The first project in CodeClan's 16 week learn to code course, we were required to create a website in one week with the following requirements/restrictions:
+
+The project must be built using only:
+
+Sinatra
+PostGRES SQL
+HTML / CSS
+Ruby
+
+It must NOT use:
+
+Any Object Relational Mapper (e.g. ActiveRecord)
+JavaScript.
+Authentication
+
+My brief was to create a Squad Builder for the X-Wing tabletop game:
+
+Create a web app with ships, upgrades and pilots, which can be added to a squadron for a particular faction.  It should be possible to save and retrieve squadrons from the database, add news ships and upgrades to the database, and add new pilots to ships.
