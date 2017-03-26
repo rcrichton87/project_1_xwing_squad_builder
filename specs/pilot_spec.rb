@@ -74,6 +74,12 @@ class TestPilot < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_cost
+    @pilot.cost = 3
+    expected = 3
+    assert_equal(expected, @pilot.cost)
+  end
+
 
 
 end
