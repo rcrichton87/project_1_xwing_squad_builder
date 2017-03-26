@@ -62,4 +62,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_manoeuvres
+    expected = 'another link'
+    @ship.manoeuvres = 'another link'
+    assert_equal(expected, @ship.manoeuvres)
+  end
+
 end
