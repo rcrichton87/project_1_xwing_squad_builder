@@ -32,6 +32,12 @@ class TestPilot < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_name
+    @pilot.name = 'Wedge'
+    expected = 'Wedge'
+    assert_equal(expected, @pilot.name)
+  end
+
 
 
 end
