@@ -80,4 +80,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, @ship.cost)
   end
 
+  def test_faction
+    expected = 'rebel'
+    actual = @ship.faction
+    assert_equal(expected, actual)
+  end
+
 end
