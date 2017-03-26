@@ -16,6 +16,10 @@ class TestShip < MiniTest::Test
     })
   end
 
+  def test_id
+    assert_equal(5, @ship.id)
+  end
+
   def test_name
     expected = 'T-65 X-Wing'
     actual = @ship.name
