@@ -92,4 +92,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, @ship.faction)
   end
 
+  def test_stats_string
+    expected = '3, 2, 2, 3'
+    actual = @ship.stats_string
+    assert_equal(expected, actual)
+  end
+
 end
