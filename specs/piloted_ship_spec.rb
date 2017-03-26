@@ -4,6 +4,7 @@ require_relative('../models/pilot.rb')
 require_relative('../models/ship.rb')
 require_relative('../models/squad.rb')
 require_relative('../models/piloted_ship.rb')
+require_relative('../models/upgrade.rb')
 
 
 class TestPilotedShip < MiniTest::Test
@@ -58,6 +59,12 @@ class TestPilotedShip < MiniTest::Test
   def test_ship_id
     expected = 1
     actual = @piloted_ship.ship_id
+    assert_equal(expected, actual)
+  end
+
+  def test_squad_id
+    expected = 10
+    actual = @piloted_ship.squad_id
     assert_equal(expected, actual)
   end
 

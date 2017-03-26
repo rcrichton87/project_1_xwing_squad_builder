@@ -5,7 +5,7 @@ require_relative('./piloted_ships_upgrades.rb')
 
 class PilotedShip
 
-  attr_reader :id, :pilot_id, :ship_id
+  attr_reader :id, :pilot_id, :ship_id, :squad_id
 
   def initialize(options)
     @id = options['id'].to_i
