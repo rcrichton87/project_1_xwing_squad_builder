@@ -74,4 +74,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_cost
+    expected = 24
+    @ship.cost = 24
+    assert_equal(expected, @ship.cost)
+  end
+
 end
