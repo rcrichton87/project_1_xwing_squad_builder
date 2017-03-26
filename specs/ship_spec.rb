@@ -56,4 +56,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, @ship.upgrades)
   end
 
+  def test_manoeuvres
+    expected = '/images/x_wing_manoeuvres.png'
+    actual = @ship.manoeuvres
+    assert_equal(expected, actual)
+  end
+
 end
