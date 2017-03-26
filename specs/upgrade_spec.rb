@@ -57,4 +57,10 @@ class TestUpgrade < MiniTest::Test
     assert_equal(expected, @upgrade.cost)
   end
 
+  def test_effect
+    expected = 'After executing a green maneuver, you may regain one shield, up to you maximum value.'
+    actual = @upgrade.effect
+    assert_equal(expected, actual)
+  end
+
 end
