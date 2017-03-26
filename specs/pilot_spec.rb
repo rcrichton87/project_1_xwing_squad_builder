@@ -56,6 +56,12 @@ class TestPilot < MiniTest::Test
     assert_equal(expected, @pilot.pilot_skill)
   end
 
+  def test_pilot_ability
+    expected = 'When defending, you may change one focus result to an evade result.'
+    actual = @pilot.pilot_ability
+    assert_equal(expected, actual)
+  end
+
 
 
 end
