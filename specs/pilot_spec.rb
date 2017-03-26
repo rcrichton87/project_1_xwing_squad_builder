@@ -80,6 +80,12 @@ class TestPilot < MiniTest::Test
     assert_equal(expected, @pilot.cost)
   end
 
+  def test_ship_id
+    expected = 1
+    actual = @pilot.ship_id
+    assert_equal(expected, actual)
+  end
+
 
 
 end
