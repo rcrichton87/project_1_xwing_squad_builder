@@ -21,4 +21,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_name
+    expected = 'TIE Fighter'
+    @ship.name = 'TIE Fighter'
+    assert_equal(expected, @ship.name)
+  end
+
 end
