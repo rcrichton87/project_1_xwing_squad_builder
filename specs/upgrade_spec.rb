@@ -45,4 +45,10 @@ class TestUpgrade < MiniTest::Test
     assert_equal(expected, @upgrade.type)
   end
 
+  def test_cost
+    expected = 4
+    actual = @upgrade.cost
+    assert_equal(expected, actual)
+  end
+
 end
