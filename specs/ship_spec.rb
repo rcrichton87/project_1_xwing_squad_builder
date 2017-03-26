@@ -33,4 +33,10 @@ class TestShip < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_set_stats
+    expected = [3,3,3,3]
+    @ship.stats = [3,3,3,3]
+    assert_equal(expected, @ship.stats)
+  end
+
 end
